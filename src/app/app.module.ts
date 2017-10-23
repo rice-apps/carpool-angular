@@ -11,6 +11,7 @@ import {AuthService} from "./services/auth-service/auth.service";
 import {RideService} from "./services/ride-service/ride.service";
 import {HttpModule} from "@angular/http";
 import {AuthGuard} from "./guards/auth.guard";
+import {NonAuthGuard} from "./guards/non-auth.guard";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AuthGuard} from "./guards/auth.guard";
   providers: [
     AuthService,
     RideService,
-    AuthGuard
+    AuthGuard,
+    NonAuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.authService.authenticate(params['ticket'])
         .then(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/rides']);
         })
         .catch(err => console.log(err))
 
