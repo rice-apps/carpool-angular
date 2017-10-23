@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Ride} from "../../models/ride";
+import {RideService} from "../../services/ride-service/ride.service";
 
 @Component({
   selector: 'app-ride-list',
@@ -7,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RideListComponent implements OnInit {
 
-  rides = [{name: "Cade's cool ride"}, {name: "Teju's lame ride"}];
+  private rides: Ride[];
 
-  constructor() { }
+  constructor(private rideService: RideService) { }
 
   ngOnInit() {
+    this.rideService.getRides()
+      .then(rides => this.rides = rides)
+      .catch(err => console.log(err));
   }
 
 }

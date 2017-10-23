@@ -3,7 +3,7 @@ import {Http, RequestOptions, Headers} from "@angular/http";
 import {CONFIG} from "../../config";
 
 @Injectable()
-export class RideServiceService {
+export class RideService {
 
   constructor(private http: Http) { }
 

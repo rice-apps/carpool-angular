@@ -14,11 +14,11 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.authService.authenticate(params['ticket'])
-        .catch(err => console.log(err))
         .then(() => {
-
           this.router.navigate(['/']);
         })
+        .catch(err => console.log(err))
+
     })
   }
 
