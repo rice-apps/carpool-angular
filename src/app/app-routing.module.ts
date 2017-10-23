@@ -4,6 +4,7 @@ import {AuthComponent} from "./components/auth/auth.component";
 import {LandingPageComponent} from "./components/landing-page/landing-page.component";
 import {RideListComponent} from "./components/ride-list/ride-list.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {NewRideComponent} from "./components/new-ride/new-ride.component";
 
 
 const routes: Routes = [
@@ -20,8 +21,18 @@ const routes: Routes = [
 
   {
     path: 'rides',
-    component: RideListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: RideListComponent,
+      },
+
+      {
+        path: 'new',
+        component: NewRideComponent
+      },
+    ]
   }
 
 ];

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers} from "@angular/http";
 import {CONFIG} from "../../config";
+import {Ride} from "../../models/ride";
 
 @Injectable()
 export class RideService {
@@ -19,6 +20,13 @@ export class RideService {
 
   getRides(): Promise<any> {
     return this.http.get(`${this.apiUrl}/rides`, this.jwt())
+      .toPromise()
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  }
+
+  addRide(ride: Ride): Promise<any> {
+    return this.http.post(`${this.apiUrl}/rides`, ride, this.jwt())
       .toPromise()
       .then(res => res.json())
       .catch(err => console.log(err));
