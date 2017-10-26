@@ -13,6 +13,9 @@ import {HttpModule} from "@angular/http";
 import {AuthGuard} from "./guards/auth.guard";
 import {NonAuthGuard} from "./guards/non-auth.guard";
 import { NewRideComponent } from './components/new-ride/new-ride.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDatepickerModule, MatInputModule, MatProgressSpinnerModule} from "@angular/material";
+import {FormBuilder} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,13 +29,18 @@ import { NewRideComponent } from './components/new-ride/new-ride.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatProgressSpinnerModule,
+    MatInputModule
   ],
   providers: [
     AuthService,
     RideService,
     AuthGuard,
-    NonAuthGuard
+    NonAuthGuard,
+    FormBuilder
   ],
   bootstrap: [AppComponent]
 })
