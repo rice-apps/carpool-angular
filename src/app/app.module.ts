@@ -15,6 +15,7 @@ import {NonAuthGuard} from "./guards/non-auth.guard";
 import { NewRideComponent } from './components/new-ride/new-ride.component';
 import { RideDetailComponentComponent } from './components/src/app/components/ride-detail-component/ride-detail-component.component';
 
+//
 @NgModule({
   declarations: [
     AppComponent,
