@@ -13,6 +13,8 @@ import {HttpModule} from "@angular/http";
 import {AuthGuard} from "./guards/auth.guard";
 import {NonAuthGuard} from "./guards/non-auth.guard";
 import { NewRideComponent } from './components/new-ride/new-ride.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RideDetailComponent } from './components/ride-detail/ride-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { NewRideComponent } from './components/new-ride/new-ride.component';
     RideListComponent,
     AuthComponent,
     LandingPageComponent,
-    NewRideComponent
+    NewRideComponent,
+    RideDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

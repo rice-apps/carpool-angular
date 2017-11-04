@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card mt-2" style ="width:60rem;">
+    <div class="card-body">
+      <h4 class="card-title">{{ride.title}}</h4>
+      <p class = "card-description"> Description: {{ride.description}} </p>
+      <p class = "card-departureTime">Departure Time: {{ride.departure_time | date: 'medium'}} </p>
+      <p class = "card-arrivalTime"> Arrival Time: {{ride.arrival_time| date: 'medium'}} </p>
+      <p class = "card-departureAddress"> Departing From: {{ride.departing_from}} </p>
+      <p class = "card-arrivalAddress"> Arriving At: {{ride.arriving_at}} </p>
+      <p class = "card-meetingLocation">Meeting Location: {{ride.meeting_location}} </p>
+      <a href="#" class ="btn btn-primary" >BOOK NOW</a>
+    </div>
+  </div>
+</div>

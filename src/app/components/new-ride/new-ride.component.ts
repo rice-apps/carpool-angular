@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-new-ride',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewRideComponent implements OnInit {
 
-  constructor() { }
+  private newRideForm: FormGroup;
+  isOwnCar: boolean = false;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.newRideForm = this.fb.group({
+      departingFrom: ['', Validators.required],
+      arrivingAt: ['', Validators.required],
+      isOwnCar: ['']
+    })
   }
 
 }

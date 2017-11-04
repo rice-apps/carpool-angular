@@ -32,4 +32,10 @@ export class RideService {
       .catch(err => console.log(err));
   }
 
+  getRide(ride_id: String): Promise<any> {
+    return this.http.get(`${this.apiUrl}/rides/${ride_id}`, this.jwt())
+      .toPromise()
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  }
 }

@@ -5,6 +5,7 @@ import {LandingPageComponent} from "./components/landing-page/landing-page.compo
 import {RideListComponent} from "./components/ride-list/ride-list.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {NewRideComponent} from "./components/new-ride/new-ride.component";
+import {RideDetailComponent} from "./components/ride-detail/ride-detail.component";
 
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
         path: 'new',
         component: NewRideComponent
       },
+
+      {
+        path: ':_id',
+        component: RideDetailComponent
+      }
     ]
   }
 
