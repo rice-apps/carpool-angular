@@ -84,7 +84,7 @@ export class RideListComponent implements OnInit {
   constructor(private rideService: RideService) { }
 
   ngOnInit() {
-    this.rides.concat(this.ride0, this.ride1, this.ride2, this.ride3, this.ride4);
+    this.rides = [ this.ride0, this.ride1, this.ride2, this.ride3, this.ride4 ];
     // this.rideService.getRides()
     //   .then(rides => this.rides = rides)
     //   .catch(err => console.log(err));
