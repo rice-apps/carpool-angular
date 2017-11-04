@@ -12,11 +12,22 @@
 
 <div class="container mt-5">
   <div class="card mt-2" *ngFor="let ride of rides">
-    <h4 class="card-header">
+    <h4 class="card-header" (click)="rideCollapse(ride)">
       Ride to {{ride.title}} departing at {{ride.departure_time | date: 'medium'}}
     </h4>
     <div class="card-body" *ngIf="!ride.collapse">
-        asdf
+        <div class="row no-gutters">
+            Description: {{ride.description}}
+        </div>
+        <div class="row no-gutters">
+            <div class="col-7">
+                Depart time: {{ride.departure_time | date: 'medium'}}
+                Arrival time: {{ride.arrival_time | date: 'medium'}}
+            </div>
+            <div class="col-5">
+                test
+            </div>
+        </div>
     </div>
   </div>
 </div>

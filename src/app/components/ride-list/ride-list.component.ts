@@ -90,4 +90,8 @@ export class RideListComponent implements OnInit {
     //   .catch(err => console.log(err));
   }
 
+  rideCollapse(ride) {
+      ride.collapse = !ride.collapse;
+      console.log('clicked');
+  }
 }
