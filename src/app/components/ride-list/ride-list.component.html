@@ -21,11 +21,14 @@
         </div>
         <div class="row no-gutters">
             <div class="col-7">
-                Depart time: {{ride.departure_time | date: 'medium'}}
-                Arrival time: {{ride.arrival_time | date: 'medium'}}
+              <div class="row no-gutters"> Depart time: {{ride.departure_time | date: 'medium'}} </div>
+              <div class="row no-gutters"> Arrival time: {{ride.arrival_time | date: 'medium'}} </div>
+              <div class="row no-gutters"> Depart address: {{ride.departure_address}} </div>
+              <div class="row no-gutters"> Arrival address: {{ride.arrival_address}} </div>
             </div>
             <div class="col-5">
-                test
+              <div class="row no-gutters"> Available spots: {{ride.spots}} </div>
+              <div class="row no-gutters"> Ride cost: ${{ride.cost}} </div>
             </div>
         </div>
     </div>
