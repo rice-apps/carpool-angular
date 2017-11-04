@@ -1,4 +1,4 @@
-import {User} from "./user";
+import {User} from './user';
 
 export class Ride {
   title: String;
@@ -14,4 +14,7 @@ export class Ride {
   arrival_location: Number[];
   owner: User;
   riders: User[];
+  arriving_at: String;
+  meeting_location: String;
+  collpaseView: Boolean;
 }

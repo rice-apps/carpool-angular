@@ -1,11 +1,23 @@
-<div class="container mt-5">
+<!--<div class="container mt-5">-->
+  <!--<div class="card mt-2" *ngFor="let ride of rides">-->
+    <!--<h4 class="card-header">{{ride.title}}</h4>-->
+    <!--<div class="card-body">-->
+      <!--<p>{{ride.description}}</p>-->
+    <!--</div>-->
+    <!--<div class="card-footer text-muted">-->
+      <!--Departs: {{ride.departure_time | date:'medium'}}-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class='container mt-5'>
   <div class="card mt-2" *ngFor="let ride of rides">
-    <h4 class="card-header">{{ride.title}}</h4>
-    <div class="card-body">
-      <p>{{ride.description}}</p>
-    </div>
-    <div class="card-footer text-muted">
-      Departs: {{ride.departure_time | date:'medium'}}
-    </div>
+    <h4 class="card-header">
+      Ride to {{ride.title}} departing at {{ride.departure_time}}
+    </h4>
+
   </div>
 </div>
+
+
+
