@@ -8,7 +8,12 @@
       <p class = "card-departureAddress"> Departing From: {{ride.departing_from}} </p>
       <p class = "card-arrivalAddress"> Arriving At: {{ride.arriving_at}} </p>
       <p class = "card-meetingLocation">Meeting Location: {{ride.meeting_location}} </p>
-      <a href="#" class ="btn btn-primary" >BOOK NOW</a>
+      <a (click)="postUserToRide()" class ="btn btn-primary" >BOOK NOW</a>
+    </div>
+  </div>
+  <div *ngFor="let rider of ride.riders" class="card">
+    <div class="card-body">
+      {{rider.username}}
     </div>
   </div>
 </div>

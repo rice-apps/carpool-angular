@@ -1,7 +1,7 @@
 import {User} from "./user";
 
 export class Ride {
-  _id: String;
+  _id: string;
   title: String;
   description: String;
 

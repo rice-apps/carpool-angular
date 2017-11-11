@@ -21,4 +21,9 @@ export class RideDetailComponent implements OnInit {
     })
   }
 
+  postUserToRide() {
+    this.rideService.postUserToRide(this.ride._id)
+      .then(ride => this.ride = ride);
+  }
+
 }
