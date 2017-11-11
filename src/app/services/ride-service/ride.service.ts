@@ -38,4 +38,11 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
+
+  postUserToRide(ride_id: string): Promise<any> {
+    return this.http.post(`${this.apiUrl}/rides/${ride_id}/book`, {}, this.jwt())
+      .toPromise()
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  }
 }
