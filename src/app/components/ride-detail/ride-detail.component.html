@@ -1,19 +1,23 @@
 <div class="container">
-  <div class="card mt-2" style ="width:60rem;">
+  <div class="card mt-2">
     <div class="card-body">
       <h4 class="card-title">{{ride.title}}</h4>
-      <p class = "card-description"> Description: {{ride.description}} </p>
-      <p class = "card-departureTime">Departure Time: {{ride.departure_time | date: 'medium'}} </p>
-      <p class = "card-arrivalTime"> Arrival Time: {{ride.arrival_time| date: 'medium'}} </p>
-      <p class = "card-departureAddress"> Departing From: {{ride.departing_from}} </p>
-      <p class = "card-arrivalAddress"> Arriving At: {{ride.arriving_at}} </p>
-      <p class = "card-meetingLocation">Meeting Location: {{ride.meeting_location}} </p>
-      <a (click)="postUserToRide()" class ="btn btn-primary" >BOOK NOW</a>
+      <p class="card-description">{{ride.description}}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Departing from:</b> {{ride.departing_from}}</li>
+        <li class="list-group-item"><b>Arriving at:</b> {{ride.arriving_at}}</li>
+        <li class="list-group-item"><b>Meeting location:</b> {{ride.meeting_location}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a (click)="postUserToRide()" class ="btn btn-outline-primary" >BOOK NOW</a>
     </div>
   </div>
-  <div *ngFor="let rider of ride.riders" class="card">
-    <div class="card-body">
-      {{rider.username}}
-    </div>
+  <div class="card mt-2" *ngFor="let rider of ride.riders">
+    <h4 class="card-header">John Doe<!--{{rider.first_name}} {{rider.last_name}}--></h4>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Email:</b> <a [href]="'mailto:' + rider.email">jad1@rice.edu<!--{{rider.email}}--></a></li>
+      <li class="list-group-item"><b>Phone number:</b> <a [href]="'tel:' + rider.phone"> (650)555-1998<!--{{rider.email}}--></a></li>
+    </ul>
   </div>
 </div>
