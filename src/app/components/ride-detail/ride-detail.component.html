@@ -17,7 +17,8 @@
     <h4 class="card-header">John Doe<!--{{rider.first_name}} {{rider.last_name}}--></h4>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><b>Email:</b> <a [href]="'mailto:' + rider.email">jad1@rice.edu<!--{{rider.email}}--></a></li>
-      <li class="list-group-item"><b>Phone number:</b> <a [href]="'tel:' + rider.phone"> (650)555-1998<!--{{rider.email}}--></a></li>
+      <li class="list-group-item"><b>Phone number:</b> <a [href]="'tel:' + rider.phone">(650)555-1998</a></li>
+      <li class="list-group-item" *ngIf="rider.phone !== undefined"><b>Phone number:</b> <a [href]="'tel:' + rider.phone">{{rider.phone}}</a></li>
     </ul>
   </div>
 </div>
