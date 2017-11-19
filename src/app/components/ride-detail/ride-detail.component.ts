@@ -11,19 +11,28 @@ import {ActivatedRoute} from "@angular/router";
 export class RideDetailComponent implements OnInit {
 
   ride: Ride;
-
-  constructor(private rideService: RideService, private route: ActivatedRoute) { }
+  show: Boolean;
+  constructor(private rideService: RideService, private route: ActivatedRoute) {
+    this.show = false;
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.rideService.getRide(params['_id'])
         .then(ride => this.ride = ride);
-    })
+    });
   }
 
   postUserToRide() {
     this.rideService.postUserToRide(this.ride._id)
       .then(ride => this.ride = ride);
+    this.show = true;
+  }
+
+  deleteUser() {
+    this.rideService.deleteUser(this.ride._id)
+      .then(ride => this.ride = ride);
+    this.show = false;
   }
 
 }

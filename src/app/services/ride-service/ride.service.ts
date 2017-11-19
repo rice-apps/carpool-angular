@@ -45,4 +45,12 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
+
+  deleteUser(ride_id: string): Promise<any> {
+    return this.http.post(`${this.apiUrl}/rides/${ride_id}/deletebook`, {}, this.jwt())
+      .toPromise()
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  }
+
 }

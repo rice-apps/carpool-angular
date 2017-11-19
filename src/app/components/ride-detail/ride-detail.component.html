@@ -9,11 +9,15 @@
       <p class = "card-arrivalAddress"> Arriving At: {{ride.arriving_at}} </p>
       <p class = "card-meetingLocation">Meeting Location: {{ride.meeting_location}} </p>
       <a (click)="postUserToRide()" class ="btn btn-primary" >BOOK NOW</a>
+      <a *ngIf="show" (click) = "deleteUser()" class = "btn btn-secondary float-right ">Delete booking</a>
+
     </div>
   </div>
-  <div *ngFor="let rider of ride.riders" class="card">
+
+  <div *ngFor="let rider of ride.riders" class="card mt-2">
     <div class="card-body">
       {{rider.username}}
     </div>
   </div>
+
 </div>
