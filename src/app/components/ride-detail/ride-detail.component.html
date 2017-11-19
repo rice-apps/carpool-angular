@@ -1,13 +1,16 @@
 <div class="container">
-  <div class="card mt-2">
+  <div class="card mt-2 bg-info mb-3">
     <div class="card-body">
-      <h4 class="card-title">{{ride.title}}</h4>
-      <p class="card-description">{{ride.description}}</p>
+      <h3 class="card-title">{{ride.title}}</h3>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Departing from:</b> {{ride.departing_from}}</li>
-        <li class="list-group-item"><b>Arriving at:</b> {{ride.arriving_at}}</li>
-        <li class="list-group-item"><b>Meeting location:</b> {{ride.meeting_location}}</li>
+        <li class="list-group-item"><b>Departure Time:</b>{{ride.departure_time | date: 'medium'}}</li>
+        <li class="list-group-item"><b>Departing from:</b> {{ride.departing_from}}
+          <small class="text-muted card-meetingLocation"> Meeting Location: {{ride.meeting_location}} </small> </li>
+        <li class="list-group-item"><b>Arriving at:</b> {{ride.arriving_at}}
+          <small class="text-muted card-arrivalTime"> Estimated Arrival Time: {{ride.arrival_time| date: 'medium'}}</small>  </li>
+        <p class="text-group-item"> Description:{{ride.description}}</p>
       </ul>
+
     </div>
     <div class="card-footer">
       <a (click)="postUserToRide()" class ="btn btn-outline-primary" >BOOK NOW</a>
@@ -22,3 +25,29 @@
     </ul>
   </div>
 </div>
+
+<!--
+<div class="container">
+  <div class="card text-white bf-info mb-3" style ="max-width: 20rem;">
+    <div class="card-body">
+      <h3 class="card-title">{{ride.title}}</h3>
+      <h5 class = "card-departureTime">Departure Time: {{ride.departure_time | date: 'medium'}} </h5>
+      <h5 class = "card-arrivalTime"> Estimated Arrival Time: {{ride.arrival_time| date: 'medium'}} </h5>
+      <h5 class ="card-departureAddress"> Departing From: {{ride.departing_from}}
+        <small class="text-muted card-meetingLocation"> Meeting Location: {{ride.meeting_location}}</small>
+      </h5>
+
+
+      <h5 class = "card-arrivalAddress"> Arriving At: {{ride.arriving_at}} </h5>
+      <p class = "card-description"> Description: {{ride.description}} </p>
+
+      <a (click)="postUserToRide()" class ="btn btn-primary" >BOOK NOW</a>
+    </div>
+  </div>
+  <div *ngFor="let rider of ride.riders" class="card">
+    <div class="card-body">
+      {{rider.username}}
+    </div>
+  </div>
+</div>
+-->
