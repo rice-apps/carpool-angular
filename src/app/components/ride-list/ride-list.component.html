@@ -1,4 +1,28 @@
 <div class="container mt-5">
+  <div [routerLink]="['/rides', ride._id]" class="card mt-2" *ngFor="let ride of rides">
+    <h4 class="card-header">
+      <div class="row">
+        <div class="col">
+          <div class="box">
+            <div class="date">{{ride.departure_time | date:'mediumDate'}}</div>
+            <!--month -->
+          </div>
+        </div>
+        <div class="col-10">
+          {{ride.title}}
+          {{ride.departure_time | date:'shortTime'}}
+        </div>
+      </div>
+      <div class="row">
+          <span>Second row</span>
+          <h5>
+              <a href='#' (click)="postUserToRide()" class ="btn btn-outline-primary" >BOOK NOW</a>
+          </h5>
+      </div>
+
+
+      <!--<h5>{{ride.departure_time | date:'medium'}}</h5>--></h4>
+  </div>
   <!--<div [routerLink]="['/rides', ride._id]" class="card mt-2" *ngFor="let ride of rides">-->
   <!--<div class="card mt-2" *ngFor="let ride of rides">-->
 
