@@ -15,6 +15,8 @@ import {NonAuthGuard} from "./guards/non-auth.guard";
 import { NewRideComponent } from './components/new-ride/new-ride.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RideDetailComponent } from './components/ride-detail/ride-detail.component';
+import {UserService} from "./services/user-service/user.service";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RideCardComponent } from './components/ride-card/ride-card.component';
 
 @NgModule({
@@ -26,6 +28,8 @@ import { RideCardComponent } from './components/ride-card/ride-card.component';
     LandingPageComponent,
     NewRideComponent,
     RideDetailComponent,
+    UserProfileComponent,
+    RideDetailComponent,
     RideCardComponent
   ],
   imports: [
@@ -33,13 +37,14 @@ import { RideCardComponent } from './components/ride-card/ride-card.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     AuthService,
     RideService,
     AuthGuard,
-    NonAuthGuard
+    NonAuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

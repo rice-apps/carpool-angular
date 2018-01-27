@@ -29,11 +29,12 @@ export class AuthService {
           localStorage.setItem('currentUser', JSON.stringify(result));
 
           this.loggedIn.next(true);
-
         } else {
           console.log("Authentication failed")
         }
+        return res.json();
       })
+
       .catch(err => console.log(err));
   }
 

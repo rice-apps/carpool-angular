@@ -9,16 +9,21 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class NewRideComponent implements OnInit {
 
   private newRideForm: FormGroup;
-  isOwnCar: boolean = false;
+  private departureDate: any;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.newRideForm = this.fb.group({
       departingFrom: ['', Validators.required],
+      departureDate: [''],
       arrivingAt: ['', Validators.required],
+      meetingAt: ['', Validators.required],
+      numberSpots: ['', Validators.compose([Validators.required, Validators.pattern("[1-9]+")])],
       isOwnCar: ['']
-    })
+    });
   }
+
+
 
 }
