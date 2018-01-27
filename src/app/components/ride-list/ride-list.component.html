@@ -23,4 +23,11 @@
 
       <!--<h5>{{ride.departure_time | date:'medium'}}</h5>--></h4>
   </div>
+  <!--<div [routerLink]="['/rides', ride._id]" class="card mt-2" *ngFor="let ride of rides">-->
+  <!--<div class="card mt-2" *ngFor="let ride of rides">-->
+
+
+  <!--</div>-->
+
+  <app-ride-card *ngFor="let ride of rides" [ride]="ride"> </app-ride-card>
 </div>
