@@ -1,5 +1,30 @@
 <div class="card mt-2">
-  <h4 class="card-header" data-toggle="collapse" [attr.data-target]="'#' + ride._id">{{ride.title}}</h4>
+
+
+
+
+
+
+  <h4 class="card-header" data-toggle="collapse" [attr.data-target]="'#' + ride._id">{{ride.title}}
+      <div class="row">
+        <div class="col">
+          <div class="box">
+            <div class="date">{{ride.departure_time | date:'mediumDate'}}</div>
+            <!--month -->
+          </div>
+        </div>
+        <div class="col-10">
+          {{ride.title}}
+          {{ride.departure_time | date:'shortTime'}}
+        </div>
+      </div>
+      <div class="row">
+        <span>Second row</span>
+        <h5>
+          <a href='#' (click)="postUserToRide()" class ="btn btn-outline-primary" >BOOK NOW</a>
+        </h5>
+      </div>
+  </h4>
   <div class="card-body collapse" [attr.id]="ride._id">
     <p>{{ride.description}}</p>
     <p>{{ride._id}}</p>
@@ -7,4 +32,9 @@
   <div class="card-footer text-muted">
     Departs: {{ride.departure_time | date:'medium'}}
   </div>
+
+
+
+
+
 </div>
