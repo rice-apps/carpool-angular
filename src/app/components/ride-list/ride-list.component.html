@@ -5,5 +5,5 @@
 
   <!--</div>-->
 
-  <app-ride-card *ngFor="let ride of rides" [ride]="ride"> </app-ride-card>
+  <app-ride-card *ngFor="let ride of rides" [routerLink]="['/rides', ride._id]" [ride]="ride"> </app-ride-card>
 </div>
