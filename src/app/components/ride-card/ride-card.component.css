@@ -1,8 +1,7 @@
 .box {
-  width: 70px;
-  height: 70px;
+  width: 120px;
+  height: 120px;
   background-color: navy;
-
 }
 .num-date {
   font-size: 20px;
@@ -17,10 +16,16 @@
 .date {
   width: 50%;
   margin: 0px auto;
-  font-size: 15px;
+  font-size: 19px;
   position: relative;
   top: 10px;
   bottom: 60px;
   color: white;
   font-family: helvetica;
+  text-align: center;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
 }

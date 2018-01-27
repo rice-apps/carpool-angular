@@ -19,4 +19,23 @@ export class RideCardComponent {
     this.slide_pos = 200;
   }
 
+  departParseDay(rideTime: String) {
+    if (rideTime) {
+      return rideTime.split(' ')[1].slice(0, -1);
+    }
+    // console.log(rideTime.split(','));
+
+
+  }
+
+
+  departParseMonth(rideTime: String) {
+    if (rideTime) {
+      return rideTime.split(' ')[0];
+    }
+
+
+  }
+
 }
+
