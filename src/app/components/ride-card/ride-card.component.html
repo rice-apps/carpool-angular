@@ -1,0 +1,10 @@
+<div class="card mt-2">
+  <h4 class="card-header" data-toggle="collapse" [attr.data-target]="'#' + ride._id">{{ride.title}}</h4>
+  <div class="card-body collapse" [attr.id]="ride._id">
+    <p>{{ride.description}}</p>
+    <p>{{ride._id}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    Departs: {{ride.departure_time | date:'medium'}}
+  </div>
+</div>

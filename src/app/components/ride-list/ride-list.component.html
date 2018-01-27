@@ -1,11 +1,9 @@
 <div class="container mt-5">
-  <div [routerLink]="['/rides', ride._id]" class="card mt-2" *ngFor="let ride of rides">
-    <h4 class="card-header">{{ride.title}}</h4>
-    <div class="card-body">
-      <p>{{ride.description}}</p>
-    </div>
-    <div class="card-footer text-muted">
-      Departs: {{ride.departure_time | date:'medium'}}
-    </div>
-  </div>
+  <!--<div [routerLink]="['/rides', ride._id]" class="card mt-2" *ngFor="let ride of rides">-->
+  <!--<div class="card mt-2" *ngFor="let ride of rides">-->
+
+
+  <!--</div>-->
+
+  <app-ride-card *ngFor="let ride of rides" [ride]="ride"> </app-ride-card>
 </div>

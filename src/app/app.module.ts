@@ -15,6 +15,7 @@ import {NonAuthGuard} from "./guards/non-auth.guard";
 import { NewRideComponent } from './components/new-ride/new-ride.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RideDetailComponent } from './components/ride-detail/ride-detail.component';
+import { RideCardComponent } from './components/ride-card/ride-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RideDetailComponent } from './components/ride-detail/ride-detail.compon
     AuthComponent,
     LandingPageComponent,
     NewRideComponent,
-    RideDetailComponent
+    RideDetailComponent,
+    RideCardComponent
   ],
   imports: [
     BrowserModule,
