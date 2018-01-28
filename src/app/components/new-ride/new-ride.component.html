@@ -3,10 +3,13 @@
 
     <div class="card mb-4">
       <div class="card-body">
-        <div class="form-group">
-          <label for="descriptionInput">Description:</label>
-          <input formControlName="description" type="text" class="form-control" id="descriptionInput" placeholder="Ride to Austin for ACL">
-        </div>
+        <h4>Tell us about your ride!</h4>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <ng2-flatpickr [formControlName]="dateTime"></ng2-flatpickr>
       </div>
     </div>
 
@@ -16,14 +19,22 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label for="departureInput">Departing from:</label>
-              <input formControlName="departingFrom" type="text" class="form-control" id="departureInput" placeholder="Rice">
+              <select id="departureInput" formControlName="departingFrom" class="form-control form-control-lg">
+                <option>Rice</option>
+                <option>IAH</option>
+                <option>Hobby</option>
+              </select>
             </div>
 
           </div>
           <div class="col-lg-6">
             <div class="form-group">
               <label for="arrivalInput">Arriving at:</label>
-              <input formControlName="arrivingAt" type="text" class="form-control" id="arrivalInput" placeholder="Austin">
+              <select id="arrivalInput" formControlName="arrivingAt" class="form-control form-control-lg">
+                <option>Rice</option>
+                <option>IAH</option>
+                <option>Hobby</option>
+              </select>
             </div>
           </div>
         </div>
@@ -38,35 +49,6 @@
         </div>
       </div>
     </div>
-
-    <div class="card mb-4">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="form-group">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input formControlName="isOwnCar" class="form-check-input" type="checkbox"> Is this your car?
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <label for="spotsInput">Number of spots:</label>
-              <input type="number" class="form-control" id="spotsInput" placeholder="Spots">
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="form-group">
-              <label for="costInput">Cost:</label>
-              <input type="number" class="form-control" id="costInput" placeholder="0" style="width: 100px">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
   </form>
 </div>

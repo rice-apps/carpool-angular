@@ -16,7 +16,7 @@ export class NewRideComponent implements OnInit {
   ngOnInit() {
     this.newRideForm = this.fb.group({
       departingFrom: ['', Validators.required],
-      departureDate: [''],
+      dateTime: [''],
       arrivingAt: ['', Validators.required],
       meetingAt: ['', Validators.required],
       numberSpots: ['', Validators.compose([Validators.required, Validators.pattern("[1-9]+")])],

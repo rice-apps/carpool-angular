@@ -18,6 +18,7 @@ import { RideDetailComponent } from './components/ride-detail/ride-detail.compon
 import {UserService} from "./services/user-service/user.service";
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RideCardComponent } from './components/ride-card/ride-card.component';
+import { Ng2FlatpickrModule } from "ng2-flatpickr";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RideCardComponent } from './components/ride-card/ride-card.component';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2FlatpickrModule
   ],
   providers: [
     AuthService,
