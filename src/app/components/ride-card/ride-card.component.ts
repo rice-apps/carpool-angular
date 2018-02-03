@@ -5,7 +5,7 @@ import {Ride} from "../../models/ride";
 @Component({
   selector: 'app-ride-card',
   templateUrl: './ride-card.component.html',
-  styleUrls: ['./ride-card.component.css']
+  styleUrls: ['./ride-card.component.scss']
 })
 export class RideCardComponent {
 
