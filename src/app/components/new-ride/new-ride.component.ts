@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 @Component({
   selector: 'app-new-ride',
   templateUrl: './new-ride.component.html',
-  styleUrls: ['./new-ride.component.css']
+  styleUrls: ['./new-ride.component.scss']
 })
 export class NewRideComponent implements OnInit {
 

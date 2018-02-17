@@ -1,15 +1,20 @@
 .box {
-  width: 70px;
-  height: 70px;
-  background-color: navy;
+  width: 120px;
+  height: 120px;
+  color: #eee;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
 
 }
+
 .num-date {
   font-size: 20px;
   width: 50%;
   margin: 0 auto;
   font-weight: 700;
-  color: white;
   position: relative;
   right: 13px;
 }
@@ -17,10 +22,15 @@
 .date {
   width: 50%;
   margin: 0px auto;
-  font-size: 15px;
+  font-size: 19px;
   position: relative;
   top: 10px;
   bottom: 60px;
-  color: white;
   font-family: helvetica;
+  text-align: center;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
 }
