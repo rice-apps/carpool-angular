@@ -16,6 +16,7 @@ import { NewRideComponent } from './components/new-ride/new-ride.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RideDetailComponent } from './components/ride-detail/ride-detail.component';
 import { RideCardComponent } from './components/ride-card/ride-card.component';
+import { SearchCardComponent } from './components/search-card/search-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RideCardComponent } from './components/ride-card/ride-card.component';
     LandingPageComponent,
     NewRideComponent,
     RideDetailComponent,
-    RideCardComponent
+    RideCardComponent,
+    SearchCardComponent
   ],
   imports: [
     BrowserModule,
