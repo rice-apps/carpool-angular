@@ -18,7 +18,9 @@ import { RideDetailComponent } from './components/ride-detail/ride-detail.compon
 import {UserService} from "./services/user-service/user.service";
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RideCardComponent } from './components/ride-card/ride-card.component';
-import { Ng2FlatpickrModule } from "ng2-flatpickr";
+import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AmazingTimePickerModule} from "amazing-time-picker";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,12 @@ import { Ng2FlatpickrModule } from "ng2-flatpickr";
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2FlatpickrModule
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AmazingTimePickerModule
   ],
   providers: [
     AuthService,

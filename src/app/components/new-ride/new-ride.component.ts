@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -7,9 +7,10 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./new-ride.component.css']
 })
 export class NewRideComponent implements OnInit {
+  @ViewChild('datetimepicker') dateTimeInput: ElementRef;
 
-  private newRideForm: FormGroup;
-  private departureDate: any;
+  newRideForm: FormGroup;
+  departureDate: any;
 
   constructor(private fb: FormBuilder) { }
 

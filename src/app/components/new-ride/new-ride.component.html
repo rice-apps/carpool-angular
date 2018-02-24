@@ -9,7 +9,19 @@
 
     <div class="card mb-4">
       <div class="card-body">
-        <ng2-flatpickr [formControlName]="dateTime"></ng2-flatpickr>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <input atp-time-picker value="19:00"/>
+          </div>
+        </div>
+
       </div>
     </div>
 
