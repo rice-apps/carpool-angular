@@ -14,9 +14,15 @@ export class RideListComponent implements OnInit {
   constructor(private rideService: RideService) { }
 
   ngOnInit() {
-    this.rideService.getRides()
-      .then(rides => this.rides = rides)
-      .catch(err => console.log(err));
+    // this.rideService.getRides()
+    //   .then(rides => this.rides = rides)
+    //   .catch(err => console.log(err));
   }
+  onSearch ($event) {
+    console.log('onSearch');
+    this.rides = $event;
+    console.log(this.rides);
+  }
+
 
 }

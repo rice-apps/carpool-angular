@@ -1,17 +1,17 @@
 <div class="card mt-2 w-50 mx-auto ">
-
+<form [formGroup]="newSearchForm">
   <div class="card-body nopadding">
     <div class="mb-2">
       <div class="form-row">
         <div class="col-4">
           Departing
         </div>
-        <form class="form-inline">
-          <select class="form-control" id="inlineFormCustomSelectPref">
+        <form class="form-inline" [formGroup]="newSearchForm">
+          <select class="form-control" id="inlineFormCustomSelectPref" formControlName="departing_from">
             <option selected>Departing Location...</option>
-            <option value="1">Rice</option>
-            <option value="2">IAH</option>
-            <option value="3">Hobby</option>
+            <option value="Rice">Rice</option>
+            <option value="IAH">IAH</option>
+            <option value="Hobby">Hobby</option>
           </select>
         </form>
       </div>
@@ -22,12 +22,12 @@
         <div class="col-4">
           Arriving
         </div>
-        <form class="form-inline">
-          <select class="form-control" id="inlineFormCustomSelectPref1">
+        <form class="form-inline" [formGroup]="newSearchForm">
+          <select class="form-control" id="inlineFormCustomSelectPref1" formControlName="arriving_at">
             <option selected>Arriving Location...</option>
-            <option value="1">Rice</option>
-            <option value="2">IAH</option>
-            <option value="3">Hobby</option>
+            <option value="Rice">Rice</option>
+            <option value="IAH">IAH</option>
+            <option value="Hobby">Hobby</option>
           </select>
         </form>
       </div>
@@ -37,16 +37,17 @@
         <div class="col-4">
           Time
         </div>
-        <form class="form-inline">
-          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="12:00pm">
+        <form class="form-inline" [formGroup]="newSearchForm">
+          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="12:00pm" formControlName="departure_time">
         </form>
       </div>
 
     </div>
     <div>
-      <button class="btn-primary btn-md text-center">
+      <button class="btn-primary btn-md text-center" (click)="search()">
         Search!
       </button>
     </div>
   </div>
+</form>
 </div>
