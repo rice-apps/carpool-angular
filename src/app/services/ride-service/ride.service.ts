@@ -25,6 +25,13 @@ export class RideService {
       .catch(err => console.log(err));
   }
 
+  searchRides(depart: String, arrive: String, time: String): Promise<any> {
+    return this.http.get(`${this.apiUrl}/search`, this.jwt())
+      .toPromise()
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  }
+
   addRide(ride: Ride): Promise<any> {
     return this.http.post(`${this.apiUrl}/rides`, ride, this.jwt())
       .toPromise()
