@@ -35,12 +35,12 @@ export class SearchCardComponent implements OnInit {
   }
 
   search() {
-    console.log("search()");
     this.rideService.searchRides(this.newSearchForm.value['departing_from'], this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
-      .then(rides => this.rides = rides)
+      .then(rides => {
+        this.rides = rides;
+        this.ridesSearch.emit(this.rides);
+      })
       .catch(err => console.log(err));
-    this.ridesSearch.emit(this.rides);
-
   }
 
 }

@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
+  
   <div class="d-none d-sm-block">
     <div class="center">
       <app-ride-card *ngFor="let ride of rides" [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>

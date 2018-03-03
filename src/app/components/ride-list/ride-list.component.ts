@@ -19,9 +19,7 @@ export class RideListComponent implements OnInit {
     //   .catch(err => console.log(err));
   }
   onSearch ($event) {
-    console.log('onSearch');
     this.rides = $event;
-    console.log(this.rides);
   }
 
 
