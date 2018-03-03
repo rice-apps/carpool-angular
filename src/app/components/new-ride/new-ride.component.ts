@@ -11,7 +11,9 @@ export class NewRideComponent implements OnInit {
   private newRideForm: FormGroup;
   isOwnCar: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+
+  }
 
   ngOnInit() {
     this.newRideForm = this.fb.group({
