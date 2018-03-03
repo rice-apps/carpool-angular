@@ -1,15 +1,13 @@
-<div class="container mt-5">
-  <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
-  
-  <div class="d-none d-sm-block">
-    <div class="center">
+<div class="container mt-5">  
+  <!--DESKTOP VIEW-->
+  <div class="card-deck d-none d-sm-block">
+      <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
       <app-ride-card *ngFor="let ride of rides" [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-    </div>
   </div>
 
-  <div class="d-block d-sm-none">
-    <div class="center">
+<!--MOBILE VIEW-->
+  <div class="card-deck d-block d-sm-none">
+      <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
       <app-ride-card *ngFor="let ride of rides" [ride]="ride" [routerLink]="['/rides', ride._id]"></app-ride-card>
-    </div>
   </div>
 </div>

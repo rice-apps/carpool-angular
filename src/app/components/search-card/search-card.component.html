@@ -1,51 +1,109 @@
-<div class="card mt-2 w-50 mx-auto ">
-<form [formGroup]="newSearchForm">
-  <div class="card-body nopadding">
-    <div class="mb-2">
-      <div class="form-row">
-        <div class="col-4">
-          Departing
-        </div>
-        <form class="form-inline" [formGroup]="newSearchForm">
-          <select class="form-control" id="inlineFormCustomSelectPref" formControlName="departing_from">
-            <option value="Rice">Rice</option>
-            <option value="IAH">IAH</option>
-            <option value="Hobby">Hobby</option>
-          </select>
-        </form>
-      </div>
-    </div>
+<!--DESKTOP VIEW-->
+<div class="d-none d-sm-block">
+  <div class="card mt-2 w-50 mx-auto ">
+      <form [formGroup]="newSearchForm">
+          <div class="card-body ">
+              <div class="mb-2">
+                  <div class="form-row">
+                      <div class="col-4">
+                          Departing
+                      </div>
+                      <form class="form-inline" [formGroup]="newSearchForm">
+                          <select class="form-control" id="inlineFormCustomSelectPref" formControlName="departing_from">
+                              <option value="Rice">Rice</option>
+                              <option value="IAH">IAH</option>
+                              <option value="Hobby">Hobby</option>
+                          </select>
+                      </form>
+                  </div>
+              </div>
 
-    <div class="mb-2">
-      <div class="form-row">
-        <div class="col-4">
-          Arriving
-        </div>
-        <form class="form-inline" [formGroup]="newSearchForm">
-          <select class="form-control" id="inlineFormCustomSelectPref1" formControlName="arriving_at">
-            <option value="Rice">Rice</option>
-            <option value="IAH">IAH</option>
-            <option value="Hobby">Hobby</option>
-          </select>
-        </form>
-      </div>
-    </div>
-    <div class="mb-2">
-      <div class="form-row">
-        <div class="col-4">
-          Time
-        </div>
-        <form class="form-inline" [formGroup]="newSearchForm">
-          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="12:00pm" formControlName="departure_time">
-        </form>
-      </div>
+              <div class="mb-2">
+                  <div class="form-row">
+                      <div class="col-4">
+                          Arriving
+                      </div>
+                      <form class="form-inline" [formGroup]="newSearchForm">
+                          <select class="form-control" id="inlineFormCustomSelectPref1" formControlName="arriving_at">
+                              <option value="Rice">Rice</option>
+                              <option value="IAH">IAH</option>
+                              <option value="Hobby">Hobby</option>
+                          </select>
+                      </form>
+                  </div>
+              </div>
+              <div class="mb-2">
+                  <div class="form-row">
+                      <div class="col-4">
+                          Time
+                      </div>
+                      <form class="form-inline" [formGroup]="newSearchForm">
+                          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="12:00pm" formControlName="departure_time">
+                      </form>
+                  </div>
 
-    </div>
-    <div>
-      <button class="btn-primary btn-md text-center" (click)="search()">
-        Search!
-      </button>
-    </div>
+              </div>
+              <div>
+                  <button class="btn-primary btn-md text-center" (click)="search()">
+                      Search!
+                  </button>
+              </div>
+          </div>
+      </form>
   </div>
-</form>
+</div>
+
+<!--MOBILE VIEW-->
+<div class="d-block d-sm-none">
+  <div class="card mt-2">
+      <form [formGroup]="newSearchForm">
+          <div class="card-body">
+              <div class="mb-2">
+                  <div class="form-row">
+                      <div class="col-4">
+                          Departing
+                      </div>
+                      <form class="form-inline" [formGroup]="newSearchForm">
+                          <select class="form-control" id="inlineFormCustomSelectPref" formControlName="departing_from">
+                              <option value="Rice">Rice</option>
+                              <option value="IAH">IAH</option>
+                              <option value="Hobby">Hobby</option>
+                          </select>
+                      </form>
+                  </div>
+              </div>
+
+              <div class="mb-2">
+                  <div class="form-row">
+                      <div class="col-4">
+                          Arriving
+                      </div>
+                      <form class="form-inline" [formGroup]="newSearchForm">
+                          <select class="form-control" id="inlineFormCustomSelectPref1" formControlName="arriving_at">
+                              <option value="Rice">Rice</option>
+                              <option value="IAH">IAH</option>
+                              <option value="Hobby">Hobby</option>
+                          </select>
+                      </form>
+                  </div>
+              </div>
+              <div class="mb-2">
+                  <div class="form-row">
+                      <div class="col-4">
+                          Time
+                      </div>
+                      <form class="form-inline" [formGroup]="newSearchForm">
+                          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="12:00pm" formControlName="departure_time">
+                      </form>
+                  </div>
+
+              </div>
+              <div>
+                  <button class="btn-primary btn-md text-center" (click)="search()">
+                      Search!
+                  </button>
+              </div>
+          </div>
+      </form>
+  </div>
 </div>
