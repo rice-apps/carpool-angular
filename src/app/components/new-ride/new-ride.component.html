@@ -8,30 +8,29 @@
     </div>
 
     <div class="card mb-4">
+      <div class="card-header">
+        When is your ride?
+      </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6">
-            <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <input atp-time-picker value="19:00"/>
-          </div>
+          <input class="form-control form-control-lg" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="date_time" placeholder="Date Time">
+          <owl-date-time [hour12Timer]="true"
+                         [startAt]="startAt"
+                         [stepMinute]="15" #dt1></owl-date-time>
         </div>
-
       </div>
     </div>
 
     <div class="card mb-4">
+      <div class="card-header">
+        Where to and where from?
+      </div>
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
               <label for="departureInput">Departing from:</label>
-              <select id="departureInput" formControlName="departingFrom" class="form-control form-control-lg">
+              <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg">
                 <option>Rice</option>
                 <option>IAH</option>
                 <option>Hobby</option>
@@ -42,7 +41,7 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label for="arrivalInput">Arriving at:</label>
-              <select id="arrivalInput" formControlName="arrivingAt" class="form-control form-control-lg">
+              <select id="arrivalInput" required formControlName="arriving_at" class="form-control form-control-lg">
                 <option>Rice</option>
                 <option>IAH</option>
                 <option>Hobby</option>
@@ -54,13 +53,17 @@
     </div>
 
     <div class="card mb-4">
+      <div class="card-header">
+        Where are you meeting?
+      </div>
       <div class="card-body">
         <div class="form-group">
           <label for="meetingInput">Meeting at:</label>
-          <input formControlName="meetingAt" type="text" class="form-control" id="meetingInput" placeholder="Sallyport">
+          <input required formControlName="meeting_at" type="text" class="form-control" id="meetingInput" placeholder="Sallyport">
         </div>
       </div>
     </div>
 
+    <button class="btn btn-lg btn-primary btn-block" (click)="submit()">Submit</button>
   </form>
 </div>

@@ -21,6 +21,7 @@ import { RideCardComponent } from './components/ride-card/ride-card.component';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AmazingTimePickerModule} from "amazing-time-picker";
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import {AmazingTimePickerModule} from "amazing-time-picker";
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    AmazingTimePickerModule
+    AmazingTimePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     AuthService,

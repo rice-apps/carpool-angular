@@ -28,7 +28,7 @@ export class RideService {
   addRide(ride: Ride): Promise<any> {
     return this.http.post(`${this.apiUrl}/rides`, ride, this.jwt())
       .toPromise()
-      .then(res => res.json())
+      .then(res => res.json() as Ride)
       .catch(err => console.log(err));
   }
 
