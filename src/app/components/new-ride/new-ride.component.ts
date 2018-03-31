@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-new-ride',
   templateUrl: './new-ride.component.html',
-  styleUrls: ['./new-ride.component.css']
+  styleUrls: ['./new-ride.component.scss']
 })
 export class NewRideComponent implements OnInit {
   @ViewChild('timeInput') dateTimeInput: ElementRef;
