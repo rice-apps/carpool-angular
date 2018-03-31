@@ -1,38 +1,69 @@
 <div class="container new-ride-container mt-5">
   <form [formGroup]="newRideForm">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="form-group">
-          <label for="departureInput">Departing from:</label>
-          <input formControlName="departingFrom" type="text" class="form-control" id="departureInput" placeholder="Where you're leaving">
-        </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4>Tell us about your ride!</h4>
       </div>
-      <div class="col-lg-6">
-        <div class="form-group">
-          <label for="arrivalInput">Arriving at:</label>
-          <input formControlName="arrivingAt" type="text" class="form-control" id="arrivalInput" placeholder="Where you're going">
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        When is your ride?
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <input class="form-control form-control-lg" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="date_time" placeholder="Date Time">
+          <owl-date-time [hour12Timer]="true"
+                         [startAt]="startAt"
+                         [stepMinute]="15" #dt1></owl-date-time>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="form-group">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input formControlName="isOwnCar" class="form-check-input" type="checkbox"> Is this your car?
-            </label>
-            <p>{{isOwnCar}}</p>
+    <div class="card mb-4">
+      <div class="card-header">
+        Where to and where from?
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="departureInput">Departing from:</label>
+              <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg">
+                <option>Rice</option>
+                <option>IAH</option>
+                <option>Hobby</option>
+              </select>
+            </div>
+
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="arrivalInput">Arriving at:</label>
+              <select id="arrivalInput" required formControlName="arriving_at" class="form-control form-control-lg">
+                <option>Rice</option>
+                <option>IAH</option>
+                <option>Hobby</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div *ngIf="isOwnCar" class="form-group">
-          <label for="spotsInput">Number of spots:</label>
-          <input type="number" class="form-control" id="spotsInput" placeholder="Spots">
+    </div>
 
+    <div class="card mb-4">
+      <div class="card-header">
+        Where are you meeting?
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="meetingInput">Meeting at:</label>
+          <input required formControlName="meeting_at" type="text" class="form-control" id="meetingInput" placeholder="Sallyport">
         </div>
       </div>
     </div>
+
+    <button class="btn btn-lg btn-primary btn-block" (click)="submit()">Submit</button>
   </form>
 </div>

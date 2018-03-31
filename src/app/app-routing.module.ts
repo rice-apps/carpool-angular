@@ -6,6 +6,7 @@ import {RideListComponent} from "./components/ride-list/ride-list.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {NewRideComponent} from "./components/new-ride/new-ride.component";
 import {RideDetailComponent} from "./components/ride-detail/ride-detail.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 
 const routes: Routes = [
@@ -37,6 +38,17 @@ const routes: Routes = [
       {
         path: ':_id',
         component: RideDetailComponent
+      }
+    ]
+  },
+
+  {
+    path: 'users',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: ':_id',
+        component: UserProfileComponent
       }
     ]
   }

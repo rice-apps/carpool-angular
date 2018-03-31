@@ -15,7 +15,13 @@ import {NonAuthGuard} from "./guards/non-auth.guard";
 import { NewRideComponent } from './components/new-ride/new-ride.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RideDetailComponent } from './components/ride-detail/ride-detail.component';
+import {UserService} from "./services/user-service/user.service";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RideCardComponent } from './components/ride-card/ride-card.component';
+import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AmazingTimePickerModule} from "amazing-time-picker";
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
 import { SearchCardComponent } from './components/search-card/search-card.component';
 
 @NgModule({
@@ -27,6 +33,8 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
     LandingPageComponent,
     NewRideComponent,
     RideDetailComponent,
+    UserProfileComponent,
+    RideDetailComponent,
     RideCardComponent,
     SearchCardComponent
   ],
@@ -35,13 +43,22 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AmazingTimePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     AuthService,
     RideService,
     AuthGuard,
-    NonAuthGuard
+    NonAuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

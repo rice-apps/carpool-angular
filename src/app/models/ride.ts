@@ -2,12 +2,10 @@ import {User} from "./user";
 
 export class Ride {
   _id: string;
-  title: String;
-  description: String;
-
   departing_from: String;
+  departing_datetime: Date;
   arriving_at: String;
-  meeting_location: String;
+  meeting_at: String;
 
   cost: Number;
   spots: Number;
@@ -19,5 +17,7 @@ export class Ride {
   departure_location: Number[];
   arrival_location: Number[];
   owner: User;
+  title: String;
+  description: String;
   riders: User[];
 }
