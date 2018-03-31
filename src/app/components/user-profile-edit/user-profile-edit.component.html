@@ -1,0 +1,59 @@
+<div class="container profile-container mt-5">
+  <form [formGroup]="newUserForm">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4>Tell us about yourself!</h4>
+      </div>
+    </div>
+
+    <!--<div class="card mb-4">-->
+      <!--<div class="card-header">-->
+        <!--What is your name?-->
+      <!--</div>-->
+      <!--<div class="card-body">-->
+        <!--<div class="row">-->
+          <!--<input type="text" class="form-control form-control-lg" id="name" placeholder="Name">-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</div>-->
+
+    <div class="card mb-4">
+      <div class="card-header">
+        What is your name?
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="text" class="form-control form-control-lg" id="firstName" formControlName="first_name" placeholder="First Name">
+            </div>
+
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="text" class="form-control form-control-lg" id="lastName" formControlName="last_name" placeholder="Last Name">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        What is your phone number?
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <input type="text" class="form-control form-control-lg" id="phoneNumber" formControlName="phone_number" placeholder="Phone Number">
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </form>
+
+  <button class="btn btn-lg btn-primary btn-block" (click)="submit()">Submit</button>
+</div>

@@ -1,0 +1,14 @@
+.btn {
+  cursor: pointer;
+}
+
+.profile-container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    width: 100%;
+  }
+}

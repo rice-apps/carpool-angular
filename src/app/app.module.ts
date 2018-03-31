@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AmazingTimePickerModule} from "amazing-time-picker";
 import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
 import { SearchCardComponent } from './components/search-card/search-card.component';
+import {UserProfileEditComponent} from './components/user-profile-edit/user-profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
     UserProfileComponent,
     RideDetailComponent,
     RideCardComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    UserProfileEditComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,7 @@ import {RideListComponent} from "./components/ride-list/ride-list.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {NewRideComponent} from "./components/new-ride/new-ride.component";
 import {RideDetailComponent} from "./components/ride-detail/ride-detail.component";
-import {UserProfileComponent} from "./components/user-profile/user-profile.component";
-
+import {UserProfileEditComponent} from './components/user-profile-edit/user-profile-edit.component';
 
 const routes: Routes = [
 
@@ -47,8 +46,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: ':_id',
-        component: UserProfileComponent
+        path: ':username',
+        component: UserProfileEditComponent
       }
     ]
   }

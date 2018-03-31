@@ -54,4 +54,5 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
+
 }

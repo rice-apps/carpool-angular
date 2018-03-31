@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers} from "@angular/http";
 import {CONFIG} from "../../config";
+import {User} from '../../models/user';
 // import {User} from "../../models/user";
 
 @Injectable()
@@ -17,9 +18,17 @@ export class UserService {
     }
   }
 
+
   // get user information from backend
   getUser(username: String): Promise<any> {
     return this.http.get(`${this.apiUrl}/users/${username}`, this.jwt())
+      .toPromise()
+      .then(res => res.json())
+      .catch(err => console.log(err));
+  }
+
+  editUser(user: User): Promise<any> {
+    return this.http.put(`${this.apiUrl}/users/${user.username}/edit`, user, this.jwt())
       .toPromise()
       .then(res => res.json())
       .catch(err => console.log(err));
