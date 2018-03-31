@@ -5,14 +5,14 @@
       <div class="row nopadding">
         <!--<div class="col">-->
           <div class="box nopadding" style="background-color: #008cba" >
-            <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departure_time | date:'longDate')}}</b></div>
-            <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departure_time | date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
           <!--</div>-->
         </div>
         <div class="col-6" style="padding-top: 25px; padding-left: 20px">
           <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
 
-          <h4>{{ride.departure_time | date:'shortTime'}} </h4>
+          <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
           <!--<h6 style="text-align: right; padding-right: 10px"  >-->
           <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
           <!--</h6>-->
@@ -33,15 +33,15 @@
       <div class="row">
         <div class="col col-3">
           <div class="box nopadding" style="background-color: #008cba" >
-            <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departure_time | date:'longDate')}}</b></div>
-            <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departure_time | date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
           </div>
         </div>
         <div class="col-1"></div>
         <div class="col-8" style="padding-top: 25px; padding-left: 20px">
           <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
 
-          <h4>{{ride.departure_time | date:'shortTime'}} </h4>
+          <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
           <!--<h6 style="text-align: right; padding-right: 10px"  >-->
           <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
           <!--</h6>-->
