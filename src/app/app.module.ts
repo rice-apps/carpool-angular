@@ -22,6 +22,7 @@ import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateMo
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AmazingTimePickerModule} from "amazing-time-picker";
 import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
+import { SearchCardComponent } from './components/search-card/search-card.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
     RideDetailComponent,
     UserProfileComponent,
     RideDetailComponent,
-    RideCardComponent
+    RideCardComponent,
+    SearchCardComponent
   ],
   imports: [
     BrowserModule,

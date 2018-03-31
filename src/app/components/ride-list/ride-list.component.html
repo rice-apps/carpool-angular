@@ -1,9 +1,15 @@
 <div class="container mt-5">
-  <!--<div [routerLink]="['/rides', ride._id]" class="card mt-2" *ngFor="let ride of rides">-->
-  <!--<div class="card mt-2" *ngFor="let ride of rides">-->
+  <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
+  
+  <div class="d-none d-sm-block">
+    <div class="center">
+      <app-ride-card *ngFor="let ride of rides" [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+    </div>
+  </div>
 
-
-  <!--</div>-->
-
-  <app-ride-card *ngFor="let ride of rides" [routerLink]="['/rides', ride._id]" [ride]="ride"> </app-ride-card>
+  <div class="d-block d-sm-none">
+    <div class="center">
+      <app-ride-card *ngFor="let ride of rides" [ride]="ride" [routerLink]="['/rides', ride._id]"></app-ride-card>
+    </div>
+  </div>
 </div>

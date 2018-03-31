@@ -5,7 +5,7 @@ import {RideService} from "../../services/ride-service/ride.service";
 @Component({
   selector: 'app-ride-list',
   templateUrl: './ride-list.component.html',
-  styleUrls: ['./ride-list.component.css']
+  styleUrls: ['./ride-list.component.scss']
 })
 export class RideListComponent implements OnInit {
 
@@ -14,9 +14,13 @@ export class RideListComponent implements OnInit {
   constructor(private rideService: RideService) { }
 
   ngOnInit() {
-    this.rideService.getRides()
-      .then(rides => this.rides = rides)
-      .catch(err => console.log(err));
+    // this.rideService.getRides()
+    //   .then(rides => this.rides = rides)
+    //   .catch(err => console.log(err));
   }
+  onSearch ($event) {
+    this.rides = $event;
+  }
+
 
 }
