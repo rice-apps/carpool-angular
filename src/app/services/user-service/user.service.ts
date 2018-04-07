@@ -28,6 +28,7 @@ export class UserService {
       .catch(err => console.log(err));
   }
 
+
   getSelf(username: String): Promise<any> {
     return this.http.get(`${this.apiUrl}/users/checked/${username}`, this.jwt())
       .toPromise()
