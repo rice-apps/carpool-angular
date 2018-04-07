@@ -7,6 +7,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {NewRideComponent} from "./components/new-ride/new-ride.component";
 import {RideDetailComponent} from "./components/ride-detail/ride-detail.component";
 import {UserProfileEditComponent} from './components/user-profile-edit/user-profile-edit.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
+
 
 const routes: Routes = [
 
@@ -48,6 +50,17 @@ const routes: Routes = [
       {
         path: ':username',
         component: UserProfileEditComponent
+      }
+    ]
+  },
+
+  {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: ':username',
+        component: UserProfileComponent
       }
     ]
   }

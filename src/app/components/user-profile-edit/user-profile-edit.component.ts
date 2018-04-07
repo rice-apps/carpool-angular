@@ -26,7 +26,7 @@ export class UserProfileEditComponent implements OnInit {
       phone_number: ['', Validators.required],
     });
     this.route.params.subscribe(params => {
-      this.userService.getUser(params['username'])
+      this.userService.getSelf(params['username'])
         .then(user => this.newUser = user);
     });
   }
