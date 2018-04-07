@@ -62,10 +62,11 @@ const routes: Routes = [
         component: UserProfileComponent
       }
     ]
-  }
+  },
   {
     path: 'profileerror',
     component: ProfileErrorComponent
+
   }
 ];
 
