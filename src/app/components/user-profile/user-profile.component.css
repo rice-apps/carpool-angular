@@ -1,0 +1,73 @@
+.box {
+  width: 120px;
+  height: 120px;
+  color: #eee;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+
+}
+
+.num-date {
+  font-size: 20px;
+  width: 50%;
+  margin: 0 auto;
+  font-weight: 700;
+  position: relative;
+  right: 13px;
+}
+
+.date {
+  width: 50%;
+  margin: 0px auto;
+  font-size: 19px;
+  position: relative;
+  top: 10px;
+  bottom: 60px;
+  font-family: helvetica;
+  text-align: center;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  max-height: 400px;
+  margin: auto;
+  text-align: center;
+  float: none;
+
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 170px;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}

@@ -3,11 +3,10 @@ import {Http, RequestOptions, Headers} from "@angular/http";
 import {CONFIG} from "../../config";
 import {User} from '../../models/user';
 // import {User} from "../../models/user";
-
+import {Router} from '@angular/router'
 @Injectable()
 export class UserService {
-
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
   private apiUrl: string = CONFIG.api_url;
 
   private jwt() {
@@ -24,7 +23,10 @@ export class UserService {
     return this.http.get(`${this.apiUrl}/users/${username}`, this.jwt())
       .toPromise()
       .then(res => res.json())
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        this.router.navigate(['/profileerror']);
+      });
   }
 
   editUser(user: User): Promise<any> {
