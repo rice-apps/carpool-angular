@@ -31,6 +31,7 @@ export class UserService {
       });
   }
 
+
   getSelf(username: String): Promise<any> {
     return this.http.get(`${this.apiUrl}/users/checked/${username}`, this.jwt())
       .toPromise()
