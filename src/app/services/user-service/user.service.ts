@@ -4,7 +4,7 @@ import {CONFIG} from "../../config";
 import {User} from '../../models/user';
 import {Router} from "@angular/router";
 // import {User} from "../../models/user";
-
+import {Router} from '@angular/router'
 @Injectable()
 export class UserService {
 
@@ -25,7 +25,10 @@ export class UserService {
     return this.http.get(`${this.apiUrl}/users/${username}`, this.jwt())
       .toPromise()
       .then(res => res.json())
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        this.router.navigate(['/profileerror']);
+      });
   }
 
   getSelf(username: String): Promise<any> {
