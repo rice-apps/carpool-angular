@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../models/user';
-import {UserService} from "../../services/user-service/user.service";
-import {ActivatedRoute} from "@angular/router";
-import {Router} from "@angular/router";
+import {UserService} from '../../services/user-service/user.service';
+import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -25,10 +25,9 @@ export class UserProfileEditComponent implements OnInit {
       last_name: ['', Validators.required],
       phone_number: ['', Validators.required],
     });
-    this.route.params.subscribe(params => {
-      this.userService.getSelf(params['username'])
-        .then(user => this.newUser = user);
-    });
+    console.log(JSON.parse(localStorage.getItem('currentUser')).user.username);
+    this.userService.getSelf(JSON.parse(localStorage.getItem('currentUser')).user.username)
+      .then(user => this.newUser = user);
   }
 
   submit() {

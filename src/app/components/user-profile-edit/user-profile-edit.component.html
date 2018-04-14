@@ -26,13 +26,13 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
-              <input type="text" class="form-control form-control-lg" id="firstName" formControlName="first_name" placeholder="First Name">
+              <input type="text" class="form-control form-control-lg" id="firstName" formControlName="first_name" placeholder="First Name" [(ngModel)]="newUser.first_name">
             </div>
 
           </div>
           <div class="col-lg-6">
             <div class="form-group">
-              <input type="text" class="form-control form-control-lg" id="lastName" formControlName="last_name" placeholder="Last Name">
+              <input type="text" class="form-control form-control-lg" id="lastName" formControlName="last_name" placeholder="Last Name" [(ngModel)]="newUser.last_name">
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <input type="text" class="form-control form-control-lg" id="phoneNumber" formControlName="phone_number" placeholder="Phone Number">
+          <input type="text" class="form-control form-control-lg" id="phoneNumber" formControlName="phone_number" placeholder="Phone Number" [(ngModel)]="newUser.phone">
         </div>
       </div>
 

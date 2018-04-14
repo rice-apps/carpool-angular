@@ -42,25 +42,12 @@ const routes: Routes = [
       }
     ]
   },
-
-  {
-    path: 'users',
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: ':username',
-        component: UserProfileEditComponent
-      }
-    ]
-  },
   {
     path: 'profile',
     canActivate: [AuthGuard],
     children: [
-      {
-        path: ':username',
-        component: UserProfileComponent
-      }
+      {path: 'edit', component: UserProfileEditComponent},
+      {path: ':username', component: UserProfileComponent},
     ]
   },
   {

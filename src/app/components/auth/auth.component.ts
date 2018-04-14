@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit {
         .then((res) => {
           console.log(res);
           if (!res.user.is_new) {
-            this.router.navigate(['/users', res.user.username]);
+            this.router.navigate(['/profile/edit']);
           } else {
             this.router.navigate(['/rides']);
           }

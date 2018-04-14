@@ -4,7 +4,6 @@ import {CONFIG} from "../../config";
 import {User} from '../../models/user';
 import {Router} from "@angular/router";
 // import {User} from "../../models/user";
-import {Router} from '@angular/router'
 @Injectable()
 export class UserService {
 
