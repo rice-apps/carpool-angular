@@ -25,6 +25,10 @@ export class RideDetailComponent implements OnInit {
     this.rideService.postUserToRide(this.ride._id)
       .then(ride => this.ride = ride);
   }
+  removeUserToRide() {
+    this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username )
+      .then(ride => this.ride = ride);
+  }
 
   departParseDay(rideTime: String) {
     if (rideTime) {
