@@ -35,6 +35,15 @@ export class RideDetailComponent implements OnInit {
 
   }
 
+  checkUser() {
+    for (let i = 0; i < this.ride.riders.length; i++) {
+      if (this.ride.riders[i].username === JSON.parse(localStorage.getItem('currentUser')).user.username ) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 
   departParseMonth(rideTime: String) {
     if (rideTime) {

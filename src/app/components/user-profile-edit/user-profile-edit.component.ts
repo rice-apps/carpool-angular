@@ -25,7 +25,6 @@ export class UserProfileEditComponent implements OnInit {
       last_name: ['', Validators.required],
       phone_number: ['', Validators.required],
     });
-    console.log(JSON.parse(localStorage.getItem('currentUser')).user.username);
     this.userService.getSelf(JSON.parse(localStorage.getItem('currentUser')).user.username)
       .then(user => this.newUser = user);
   }
