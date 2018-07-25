@@ -1,3 +1,5 @@
+<!--This needs a mobile and desktop version. When a user wants to create a new ride, this form will appear.-->
+
 <div class="container new-ride-container mt-5">
   <form [formGroup]="newRideForm">
 
@@ -6,7 +8,7 @@
         <h4>Tell us about your ride!</h4>
       </div>
     </div>
-
+    <!--WHEN-->
     <div class="card mb-4">
       <div class="card-header">
         When is your ride?
@@ -20,7 +22,7 @@
         </div>
       </div>
     </div>
-
+    <!--WHERE-->
     <div class="card mb-4">
       <div class="card-header">
         Where to and where from?
@@ -30,6 +32,7 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label for="departureInput">Departing from:</label>
+              <!--This is a drop down menu type thing-->
               <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg">
                 <option>Rice</option>
                 <option>IAH</option>

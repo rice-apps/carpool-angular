@@ -1,3 +1,5 @@
+<!--Allows user to search for a ride. If search matches a ride, that ride will appear If ride doesn't exist, user can create a new ride.-->
+
 <!--DESKTOP VIEW-->
 <div class="d-none d-sm-block">
   <div class="card mt-2 w-50 mx-auto ">
@@ -37,6 +39,7 @@
                       <div class="col-4">
                           Time
                       </div>
+                    <!--Searches for matching ride-->
                       <form class="form-inline" [formGroup]="newSearchForm">
                           <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="12:00pm" formControlName="departure_time">
                       </form>

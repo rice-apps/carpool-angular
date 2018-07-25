@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import {Ride} from "../../models/ride";
+import {Ride} from '../../models/ride';
 
 
 @Component({
@@ -24,10 +24,8 @@ export class RideCardComponent {
       return rideTime.split(' ')[1].slice(0, -1);
     }
     // console.log(rideTime.split(','));
-
-
   }
-
+    // converts every month to shortened version
 
   departParseMonth(rideTime: String) {
     if (rideTime) {

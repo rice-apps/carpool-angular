@@ -28,7 +28,7 @@ export class UserProfileEditComponent implements OnInit {
     this.userService.getSelf(JSON.parse(localStorage.getItem('currentUser')).user.username)
       .then(user => this.newUser = user);
   }
-
+// submit to edit profile information
   submit() {
 
     this.newUser.first_name = this.newUserForm.value['first_name'];

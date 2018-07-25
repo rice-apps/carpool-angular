@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Ride} from "../../models/ride";
-import {RideService} from "../../services/ride-service/ride.service";
-import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Ride} from '../../models/ride';
+import {RideService} from '../../services/ride-service/ride.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-ride',
@@ -30,7 +30,7 @@ export class NewRideComponent implements OnInit {
       meeting_at: ['', Validators.required],
     });
   }
-
+  // when submit is pressed, the user information is updated and a new ride is created
   submit() {
     this.newRide.departing_from = this.newRideForm.value['departing_from'];
     this.newRide.arriving_at = this.newRideForm.value['arriving_at'];
