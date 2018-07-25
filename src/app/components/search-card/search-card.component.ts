@@ -1,7 +1,8 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import {Ride} from "../../models/ride";
-import {RideService} from "../../services/ride-service/ride.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Ride} from '../../models/ride';
+import {RideService} from '../../services/ride-service/ride.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 
 
@@ -12,10 +13,11 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class SearchCardComponent implements OnInit {
   @Output() ridesSearch = new EventEmitter<Ride[]>();
-  private rides : Ride[];
+  private rides: Ride[];
   private newSearchForm: FormGroup;
 
-  constructor(private rideService: RideService, private fb: FormBuilder) { }
+  constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
+
 
   ngOnInit() {
     this.newSearchForm = this.fb.group({
@@ -24,7 +26,8 @@ export class SearchCardComponent implements OnInit {
       departure_time: ['']
     });
 
-    this.rideService.searchRides(this.newSearchForm.value['departing_from'], this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
+    this.rideService.searchRides(this.newSearchForm.value['departing_from'],
+      this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
       .then(rides => {
         this.rides = rides;
         this.ridesSearch.emit(this.rides);
@@ -33,14 +36,20 @@ export class SearchCardComponent implements OnInit {
 
 
   }
-
+// searches for matching ride by looking at arrival and departure time
   search() {
-    this.rideService.searchRides(this.newSearchForm.value['departing_from'], this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
+    this.rideService.searchRides(this.newSearchForm.value['departing_from']
+      , this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
       .then(rides => {
         this.rides = rides;
         this.ridesSearch.emit(this.rides);
       })
       .catch(err => console.log(err));
+  }
+
+
+  newRideForm() {
+    this.router.navigate(['/profile/edit']);
   }
 
 }

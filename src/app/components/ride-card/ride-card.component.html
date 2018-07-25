@@ -1,14 +1,18 @@
+<!--This is the ride card that contains departing date and time and destination. Users can click on it to get more details-->
+
 <!--DESKTOP VIEW-->
+
 <div class="d-none d-sm-block">
   <div class="card mt-2 w-50 mx-auto">
     <div class="card-header nopadding" [routerLink]="['/rides', ride._id]" data-toggle="collapse" >
       <div class="row nopadding">
-        <!--<div class="col">-->
+        <!--shows calendar date in a pretty way-->
           <div class="box nopadding" style="background-color: #008cba" >
             <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
           <!--</div>-->
         </div>
+        <!--From departure location -> destination location -->
         <div class="col-6" style="padding-top: 25px; padding-left: 20px">
           <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
 

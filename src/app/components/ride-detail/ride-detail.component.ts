@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {RideService} from "../../services/ride-service/ride.service";
-import {Ride} from "../../models/ride";
-import {ActivatedRoute} from "@angular/router";
+import {RideService} from '../../services/ride-service/ride.service';
+import {Ride} from '../../models/ride';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-ride-detail',
@@ -20,11 +20,12 @@ export class RideDetailComponent implements OnInit {
         .then(ride => this.ride = ride);
     });
   }
-
+// allows user to join ride
   postUserToRide() {
     this.rideService.postUserToRide(this.ride._id)
       .then(ride => this.ride = ride);
   }
+  // allows user to leave ride
   removeUserToRide() {
     this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username )
       .then(ride => this.ride = ride);
@@ -38,7 +39,7 @@ export class RideDetailComponent implements OnInit {
 
 
   }
-
+// check to see if user exists
   checkUser() {
     for (let i = 0; i < this.ride.riders.length; i++) {
       if (this.ride.riders[i].username === JSON.parse(localStorage.getItem('currentUser')).user.username ) {
@@ -48,7 +49,7 @@ export class RideDetailComponent implements OnInit {
     return true;
   }
 
-
+// displays month in its shortened version
   departParseMonth(rideTime: String) {
     if (rideTime) {
       const temp =  rideTime.split(' ')[0];

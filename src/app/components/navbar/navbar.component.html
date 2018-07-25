@@ -1,3 +1,5 @@
+<!--This is the top part of every page to log out and to see profile information-->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Carpool</a>
@@ -8,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
 
-
+      <!--User can log in and out-->
       <button *ngIf="loggedIn | async" (click)="logout()" class="btn btn-outline-secondary my-2 my-sm-0">Log out</button>
       <a *ngIf="!(loggedIn | async)" class="btn btn-outline-secondary my-2 my-sm-0" [attr.href]="authUrl">Log in</a>
       <a style="color: #eee; margin: 0 0 0 1rem; font-size: 12pt">{{username}}</a>
