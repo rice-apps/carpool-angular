@@ -3,6 +3,8 @@ import {Ride} from "../../models/ride";
 import {RideService} from "../../services/ride-service/ride.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
+import {Router} from "@angular/router"
+
 
 
 @Component({
@@ -15,7 +17,8 @@ export class SearchCardComponent implements OnInit {
   private rides : Ride[];
   private newSearchForm: FormGroup;
 
-  constructor(private rideService: RideService, private fb: FormBuilder) { }
+  constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
+
 
   ngOnInit() {
     this.newSearchForm = this.fb.group({
@@ -41,6 +44,11 @@ export class SearchCardComponent implements OnInit {
         this.ridesSearch.emit(this.rides);
       })
       .catch(err => console.log(err));
+  }
+
+
+  newRideForm() {
+    this.router.navigate(['/rides/new']);
   }
 
 }
