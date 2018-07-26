@@ -47,9 +47,9 @@ export class SearchCardComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-
+// this routes page to /rides/new
   newRideForm() {
-    this.router.navigate(['/profile/edit']);
+    this.router.navigate(['/rides/new']);
   }
 
 }
