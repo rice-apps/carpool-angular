@@ -16,6 +16,7 @@
         <!--<p class="title">Description</p>-->
         <p>{{newUser.phone}}</p>
     <p><a [href]="'mailto:' + newUser.email" style="color: white"><button>{{newUser.email}}</button></a></p>
+        <button class="btn btn-lg btn-primary btn-block" (click)="edit()">Edit</button>
       </div>
     </div>
   </div>

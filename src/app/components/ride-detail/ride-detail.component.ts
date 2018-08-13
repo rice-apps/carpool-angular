@@ -23,7 +23,11 @@ export class RideDetailComponent implements OnInit {
 // allows user to join ride
   postUserToRide() {
     this.rideService.postUserToRide(this.ride._id)
-      .then(ride => this.ride = ride);
+      .then(ride => {
+        this.ride = ride;
+        console.log(this.ride._id);
+        console.log(ride);
+      });
   }
   // allows user to leave ride
   removeUserToRide() {

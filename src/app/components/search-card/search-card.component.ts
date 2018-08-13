@@ -36,7 +36,7 @@ export class SearchCardComponent implements OnInit {
 
 
   }
-// searches for matching ride by looking at arrival and departure time
+// searches for matching ride by looking at arrival and departure location and date
   search() {
     this.rideService.searchRides(this.newSearchForm.value['departing_from']
       , this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
