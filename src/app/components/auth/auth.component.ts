@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../services/auth-service/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../../models/user";
-import {UserService} from "../../services/user-service/user.service";
+import {AuthService} from '../../services/auth-service/auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../../models/user';
+import {UserService} from '../../services/user-service/user.service';
 
 @Component({
   selector: 'app-auth',
@@ -21,16 +21,16 @@ export class AuthComponent implements OnInit {
       this.authService.authenticate(params['ticket'])
         .then((res) => {
           console.log(res);
-          if (!res.user.is_new) {
+          if (res.user.is_new) {
             this.router.navigate(['/profile/edit']);
           } else {
             this.router.navigate(['/rides']);
           }
 
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
 
-    })
+    }); // why is it making me put a semicolon here
   }
 
 }
