@@ -23,8 +23,13 @@ export class RideDetailComponent implements OnInit {
 
   postUserToRide() {
     this.rideService.postUserToRide(this.ride._id)
-      .then(ride => this.ride = ride);
+      .then(ride =>{
+        this.ride = ride;
+        console.log("response: "+ this.ride._id);
+        console.log(ride);
+      });
   }
+
   removeUserToRide() {
     this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username )
       .then(ride => this.ride = ride);

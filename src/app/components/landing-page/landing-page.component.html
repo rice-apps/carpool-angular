@@ -4,7 +4,9 @@
     <p class="lead text-center">The reign of Google Sheets is over</p>
     <hr class="my-4">
     <p class="lead ">
-      <a class="btn btn-outline-primary btn-lg" [attr.href]="authUrl" role="button">Login with netID</a>
+      <!--<a class="btn btn-outline-primary btn-lg" [attr.href]="authUrl" role="button">Login with netID</a>-->
+      <a class="btn btn-outline-primary btn-lg" [attr.href]="authUrl" *ngIf="checkUserExists()">Login with NetId</a>
+      <a class="btn btn-outline-primary btn-lg" (click)="NagivateRides()" *ngIf="!checkUserExists()">Get a Ride</a>
     </p>
   </div>
 </div>

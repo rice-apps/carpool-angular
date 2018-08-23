@@ -22,7 +22,7 @@ import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateMo
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AmazingTimePickerModule} from "amazing-time-picker";
 import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
-import { SearchCardComponent } from './components/search-card/search-card.component';
+import {SearchCardComponent } from './components/search-card/search-card.component';
 import {UserProfileEditComponent} from './components/user-profile-edit/user-profile-edit.component';
 import { ProfileErrorComponent } from './components/profile-error/profile-error.component';
 

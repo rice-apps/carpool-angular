@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers} from "@angular/http";
 import {CONFIG} from "../../config";
 import {Ride} from "../../models/ride";
+import {Router} from '@angular/router';
 
 @Injectable()
 export class RideService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
   private apiUrl: string = CONFIG.api_url;
 
@@ -26,6 +27,7 @@ export class RideService {
   }
 
   searchRides(departing_from = '', arriving_at = '', departure_time = ''): Promise<any> {
+    // TODO: figure out time search
     return this.http.get(
       `${this.apiUrl}/search?departing_from=${departing_from}&arriving_at=${arriving_at}&departure_time=${departure_time}`,
       this.jwt())
@@ -35,7 +37,7 @@ export class RideService {
   }
 
   addRide(ride: Ride): Promise<any> {
-    return this.http.post(`${this.apiUrl}/rides`, ride, this.jwt())
+    return this.http.post(`${this.apiUrl}/rides`, {ride}, this.jwt())
       .toPromise()
       .then(res => res.json() as Ride)
       .catch(err => console.log(err));
@@ -48,7 +50,7 @@ export class RideService {
       .catch(err => console.log(err));
   }
 
-  postUserToRide(ride_id: string): Promise<any> {
+  postUserToRide(ride_id: String): Promise<any> {
     return this.http.post(`${this.apiUrl}/rides/${ride_id}/book`, {}, this.jwt())
       .toPromise()
       .then(res => res.json())
@@ -61,5 +63,7 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
+
+  deleteRide(ride_id: string, )
 
 }
