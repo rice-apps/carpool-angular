@@ -22,10 +22,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  NavigateRides() {
-    this.router.navigate(['/rides']);
-  }
-
   checkUserExists() {
     this.route.queryParams.subscribe(params => {
       this.authService.authenticate(params['ticket'])
@@ -40,6 +36,10 @@ export class LandingPageComponent implements OnInit {
         })
         .catch(err => console.log(err));
     })
+  }
+
+  navigateRides() {
+    this.router.navigate(['/rides']);
   }
 
 }

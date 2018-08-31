@@ -14,9 +14,13 @@ export class AuthComponent implements OnInit {
   constructor(private authService: AuthService,
               private route: ActivatedRoute,
               private router: Router,
-              private userService: UserService) { }
+              private userService: UserService) {
+    console.log("we're in constructor");
+  }
+
 
   ngOnInit() {
+    console.log("ngONit!!")
     this.route.queryParams.subscribe(params => {
       this.authService.authenticate(params['ticket'])
         .then((res) => {

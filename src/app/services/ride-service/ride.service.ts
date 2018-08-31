@@ -7,15 +7,16 @@ import {Router} from '@angular/router';
 @Injectable()
 export class RideService {
 
-  constructor(private http: Http, private router: Router) { }
+  constructor(private http: Http, private router: Router) {
+  }
 
   private apiUrl: string = CONFIG.api_url;
 
   private jwt() {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.user.token) {
-      let headers = new Headers({ 'x-access-token': currentUser.user.token });
-      return new RequestOptions({ headers: headers });
+      let headers = new Headers({'x-access-token': currentUser.user.token});
+      return new RequestOptions({headers: headers});
     }
   }
 
@@ -63,7 +64,4 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
-
-  deleteRide(ride_id: string, )
-
 }
