@@ -26,14 +26,20 @@ export class RideDetailComponent implements OnInit {
       .then(ride => {
         this.ride = ride;
         console.log(this.ride._id);
-        console.log(ride);
       });
   }
   // allows user to leave ride
   removeUserToRide() {
-    this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username )
+    this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username)
       .then(ride => this.ride = ride);
   }
+  // .then(ride => {
+  //   if (ride.riders.length == 0){
+  //     this.rideService.deleteRide(this.ride._id)
+  //       .then(ride => console.log('ride is deleted!!'+ ride));
+  //   }
+  //   this.ride = ride;
+  // });
 
   departParseDay(rideTime: String) {
     if (rideTime) {
