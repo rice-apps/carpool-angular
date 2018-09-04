@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Http, RequestOptions, Headers} from "@angular/http";
-import {CONFIG} from "../../config";
-import {Ride} from "../../models/ride";
+import {Http, RequestOptions, Headers} from '@angular/http';
+import {CONFIG} from '../../config';
+import {Ride} from '../../models/ride';
 
 @Injectable()
 export class RideService {
@@ -62,11 +62,11 @@ export class RideService {
       .catch(err => console.log(err));
   }
 
-  // deleteRide(ride_id: string): Promise<any> {
-  //   return this.http.delete(`${this.apiUrl}/rides/${ride_id}`, this.jwt())
-  //     .toPromise()
-  //     .then(res => res.json())
-  //     .catch(err => console.log(err));
-  // }
+    // deleteRide(ride_id: string): Promise<any> {
+    //   return this.http.delete(`${this.apiUrl}/rides/${ride_id}`, this.jwt())
+    //     .toPromise()
+    //     .then(res => res.json())
+    //     .catch(err => console.log(err));
+    // }
 
 }

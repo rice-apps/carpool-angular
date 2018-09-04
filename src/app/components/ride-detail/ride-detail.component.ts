@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RideService} from '../../services/ride-service/ride.service';
 import {Ride} from '../../models/ride';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-ride-detail',
@@ -12,7 +13,7 @@ export class RideDetailComponent implements OnInit {
 
   ride: Ride;
 
-  constructor(private rideService: RideService, private route: ActivatedRoute) { }
+  constructor(private rideService: RideService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router)  { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -32,14 +33,13 @@ export class RideDetailComponent implements OnInit {
   removeUserToRide() {
     this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username)
       .then(ride => this.ride = ride);
+      this.router.navigate(['/rides']);
+    //   this.rideService.deleteRide(this.ride._id)
+    //     .then(ride => console.log('ride is deleted!!' + ride));
+    // }
+    // this.ride = ride;
   }
-  // .then(ride => {
-  //   if (ride.riders.length == 0){
-  //     this.rideService.deleteRide(this.ride._id)
-  //       .then(ride => console.log('ride is deleted!!'+ ride));
-  //   }
-  //   this.ride = ride;
-  // });
+
 
   departParseDay(rideTime: String) {
     if (rideTime) {
