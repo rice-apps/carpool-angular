@@ -33,6 +33,7 @@ export class RideDetailComponent implements OnInit {
   removeUserToRide() {
     this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username)
       .then(ride => this.ride = ride);
+      alert('You have been removed from this ride.');
       this.router.navigate(['/rides']);
     //   this.rideService.deleteRide(this.ride._id)
     //     .then(ride => console.log('ride is deleted!!' + ride));
