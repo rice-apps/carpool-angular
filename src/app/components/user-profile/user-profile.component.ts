@@ -15,6 +15,8 @@ import {User} from '../../models/user';
 export class UserProfileComponent implements OnInit {
   newUser: User;
 
+  private rides: Ride[];
+
   constructor(private userService: UserService, private route: ActivatedRoute,
               private rideService: RideService, private fb: FormBuilder, private router: Router) {}
   ngOnInit() {
@@ -22,6 +24,9 @@ export class UserProfileComponent implements OnInit {
       this.userService.getUser(params['username'])
         .then(user => this.newUser = user);
     });
+    this.rideService.getRides()
+      .then(rides => {this.rides = rides; console.log(rides); })
+      .catch(err => console.log(err));
   }
 
   edit() {
@@ -29,4 +34,12 @@ export class UserProfileComponent implements OnInit {
 
   }
 
+  riderInRide(riders: User[]) {
+    for (let i = 0; i < riders.length; i++) {
+      if (riders[i]['_id'] === this.newUser._id) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
