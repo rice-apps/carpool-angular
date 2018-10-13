@@ -7,6 +7,7 @@
       <app-ride-card *ngFor="let ride of rides" [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
   </div>
 
+
 <!--MOBILE VIEW-->
   <div class="card-deck d-block d-sm-none">
       <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>

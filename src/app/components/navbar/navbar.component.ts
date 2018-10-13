@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
   private authUrl: string = `${CONFIG.cas_auth_url}?service=${CONFIG.service_url}`;
   private username: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit() {
     this.loggedIn = this.authService.isLoggedIn;
@@ -29,6 +30,10 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  profile() {
+    this.router.navigate(['/profile/' + this.username.toString()]);
+  }
+
   logout() {
     this.authService.logout()
       .then(() => {
@@ -36,9 +41,5 @@ export class NavbarComponent implements OnInit {
         this.username = '';
       });
   }
-
-  // profile() {
-  //   this.router.navigate(['/profile']);
-  //
-  // }
 }
+

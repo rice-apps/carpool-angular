@@ -23,3 +23,4 @@ describe('RideListComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

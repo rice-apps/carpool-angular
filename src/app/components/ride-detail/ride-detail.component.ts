@@ -92,3 +92,7 @@ export class RideDetailComponent implements OnInit {
   }
 
 }
+
+function total_rides() {
+  return this.ride.riders.length;
+}
