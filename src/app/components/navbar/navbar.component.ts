@@ -40,7 +40,7 @@ export class NavbarComponent implements OnInit {
       });
   }
 
-  profile() {
-    this.router.navigate(['/profile']);
-  }
+  // profile() {
+  //   this.router.navigate(['/profile']);
+  // }
 }
