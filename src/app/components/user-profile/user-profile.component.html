@@ -27,24 +27,33 @@
         <h1 style="text-align: center">Past rides</h1>
         <!--DESKTOP VIEW-->
         <div class="card-deck d-none d-sm-block" >
-          <div *ngFor="let ride of rides">
-            <ng-container *ngIf="riderInRide(ride.riders)">
-              <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-            </ng-container>
+          <div *ngFor="let ride of past_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
           </div>
         </div>
 
         <!--MOBILE VIEW-->
         <div class="card-deck d-block d-sm-none">
-          <div *ngFor="let ride of rides">
-            <ng-container *ngIf="riderInRide(ride.riders)">
-              <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-            </ng-container>
+          <div *ngFor="let ride of past_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
           </div>
         </div>
       </div>
       <div class="col-6">
         <h1 style="text-align: center">Upcoming rides</h1>
+        <!--DESKTOP VIEW-->
+        <div class="card-deck d-none d-sm-block" >
+          <div *ngFor="let ride of future_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
+        </div>
+
+        <!--MOBILE VIEW-->
+        <div class="card-deck d-block d-sm-none">
+          <div *ngFor="let ride of future_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
+        </div>
       </div>
     </div>
 
