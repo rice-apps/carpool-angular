@@ -27,6 +27,7 @@ export class RideCardComponent {
   }
     // converts every month to shortened version
 
+
   departParseMonth(rideTime: String) {
     if (rideTime) {
       const temp =  rideTime.split(' ')[0];
@@ -59,4 +60,12 @@ export class RideCardComponent {
   }
 
 }
+  // isitactive(){
+  //   if (ride.riders.length == 1){
+  //     let current = document.getElementsByClassName('active');
+  //     current[0].className = current[0].className.replace(' active', '');
+  //     this.className += ' active';
+  // };
+  // }
+
 

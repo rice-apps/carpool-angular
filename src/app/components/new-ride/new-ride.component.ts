@@ -27,7 +27,7 @@ export class NewRideComponent implements OnInit {
       departing_from: ['', Validators.required],
       date_time: ['', Validators.required],
       arriving_at: ['', Validators.required],
-      meeting_at: ['', Validators.required],
+      meeting_location: ['', Validators.required],
     });
   }
   // when submit is pressed, the user information is updated and a new ride is created
@@ -35,7 +35,7 @@ export class NewRideComponent implements OnInit {
     console.log('in submit');
     this.newRide.departing_from = this.newRideForm.value['departing_from'];
     this.newRide.arriving_at = this.newRideForm.value['arriving_at'];
-    this.newRide.meeting_at = this.newRideForm.value['meeting_at'];
+    this.newRide.meeting_location = this.newRideForm.value['meeting_at'];
     this.newRide.departing_datetime = this.newRideForm.value['date_time'];
     this.rideService.addRide(this.newRide)
       .then((ride) => {
