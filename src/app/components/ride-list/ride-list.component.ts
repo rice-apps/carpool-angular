@@ -18,9 +18,48 @@ export class RideListComponent implements OnInit {
     //   .then(rides => this.rides = rides)
     //   .catch(err => console.log(err));
   }
+
+  //TODO: sortByRecent is apparently not defined... look into this.
+  sortByRecent(){
+    this.rides.sort(function(a, b) {
+      if (a.departing_datetime < b.departing_datetime) {
+        return 1;
+      }
+      if (a.departing_datetime > b.departing_datetime) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  sortByOldest(){
+    this.rides.sort(function(a, b) {
+      if (a.departing_datetime > b.departing_datetime) {
+        return 1;
+      }
+      if (a.departing_datetime < b.departing_datetime) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   onSearch ($event) {
     this.rides = $event;
+    this.rides.sort(function(a, b) {
+      if (a.departing_datetime < b.departing_datetime) {
+        return 1;
+      }
+      if (a.departing_datetime > b.departing_datetime) {
+        return -1;
+      }
+      return 0;
+    });
+    console.log(this.rides);
   }
+
+
+
 
 
 }
