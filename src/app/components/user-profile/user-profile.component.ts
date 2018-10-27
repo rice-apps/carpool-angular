@@ -18,6 +18,9 @@ export class UserProfileComponent implements OnInit {
   private rides: Ride[];
   public past_rides: Ride[];
   public future_rides: Ride[];
+  public money_saved = 0;
+  // I just hardcoded these prices using this website: https://www.taxifarefinder.com/main.php?city=Uber-X-Houston
+  public ride_costs = {'Rice' : {'IAH' : 40, 'Hobby' : 20, 'Rice' : 0}, 'IAH' : {'Rice' : 40}, 'Hobby' : {'Rice': 20}};
 
   constructor(private userService: UserService, private route: ActivatedRoute,
               private rideService: RideService, private fb: FormBuilder, private router: Router) {}
@@ -27,7 +30,12 @@ export class UserProfileComponent implements OnInit {
         .then(user => {
           this.newUser = user;
           this.rideService.getPastRidesByUser(this.newUser.username.toString())
-            .then(rides => {this.past_rides = rides; console.log(rides); })
+            .then(rides => {this.past_rides = rides; console.log(rides);
+              for (const ride of this.past_rides) {
+                const added_thing = this.ride_costs[ride.departing_from.toString()][ride.arriving_at.toString()];
+                if (added_thing !== undefined) {
+                  this.money_saved += added_thing / ride.riders.length;
+                }}})
             .catch(err => console.log(err));
           this.rideService.getFutureRidesByUser(this.newUser.username.toString())
             .then(rides => {this.future_rides = rides; console.log(rides); })
