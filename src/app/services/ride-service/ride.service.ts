@@ -62,12 +62,14 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
+
   getPastRidesByUser(user_id: string): Promise<any> {
     return this.http.get(`${this.apiUrl}/rides/past/user/${user_id}`, this.jwt())
       .toPromise()
       .then(res => res.json())
       .catch(err => console.log(err));
   }
+  
   getFutureRidesByUser(user_id: string): Promise<any> {
     return this.http.get(`${this.apiUrl}/rides/future/user/${user_id}`, this.jwt())
       .toPromise()
