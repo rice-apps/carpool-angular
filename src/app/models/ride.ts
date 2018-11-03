@@ -6,6 +6,8 @@ export class Ride {
   departing_datetime: Date;
   arriving_at: String;
   meeting_location: String;
+  number_riders: String;
+
   // number_of_riders: Number;
 
   cost: Number;
