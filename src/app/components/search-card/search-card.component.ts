@@ -15,11 +15,8 @@ export class SearchCardComponent implements OnInit {
   @Output() ridesSearch = new EventEmitter<Ride[]>();
   private rides: Ride[];
   private newSearchForm: FormGroup;
-  private startAt: Date = new Date();
 
-  constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {
-      this.startAt.setHours(0, 0, 0, 0);
-  }
+  constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
 
 
   ngOnInit() {
