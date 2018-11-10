@@ -6,17 +6,24 @@
       <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
       <div class="mt-2 w-50 mx-auto" style = "margin-left:auto; margin-right:0;">
         <select id="sortResults" #sortResults class="form-control form-control-lg" (change) = "onToggleSort(sortResults.value)">
-          <option value="Recent">Sort by Most Recent</option>
-          <option value = "Oldest">Sort by Least Recent</option>
+          <option value = "Earliest">Sort by Earliest Date</option>
+          <option value = "Latest">Sort by Latest Date</option>
         </select>
       </div>
 
       <app-ride-card *ngFor="let ride of rides" [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
   </div>
 
-<!--MOBILE VIEW-->
+  <!--MOBILE VIEW-->
   <div class="card-deck d-block d-sm-none">
       <app-search-card (ridesSearch)="onSearch($event)"></app-search-card>
+      <div class="mt-2 w-50 mx-auto" style = "margin-left:auto; margin-right:0;">
+        <select id="sortResultsMobile" #sortResultsMobile class="form-control form-control-lg" (change) = "onToggleSort(sortResultsMobile.value)">
+          <option value = "Earliest">Sort by Earliest Date</option>
+          <option value = "Latest">Sort by Latest Date</option>
+        </select>
+      </div>
+
       <app-ride-card *ngFor="let ride of rides" [ride]="ride" [routerLink]="['/rides', ride._id]"></app-ride-card>
   </div>
 </div>

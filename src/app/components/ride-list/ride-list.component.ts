@@ -10,51 +10,54 @@ import {RideService} from "../../services/ride-service/ride.service";
 export class RideListComponent implements OnInit {
 
   private rides: Ride[];
+  private sortBy: String;
 
   constructor(private rideService: RideService) { }
 
   ngOnInit() {
+    this.sortBy = "Earliest";
     // this.rideService.getRides()
     //   .then(rides => this.rides = rides)
     //   .catch(err => console.log(err));
   }
 
-  sortByRecent(){
+  sortByEarliest(){
     this.rides.sort(function(a, b) {
       if (a.departing_datetime < b.departing_datetime) {
-        return 1;
+        return -1;
       }
       if (a.departing_datetime > b.departing_datetime) {
-        return -1;
+        return 1;
       }
       return 0;
     });
   }
 
-  sortByOldest(){
+  sortByLatest(){
     this.rides.sort(function(a, b) {
       if (a.departing_datetime > b.departing_datetime) {
-        return 1;
+        return -1;
       }
       if (a.departing_datetime < b.departing_datetime) {
-        return -1;
+        return 1;
       }
       return 0;
     });
   }
 
   onToggleSort(s: String) {
-    if (s == "Recent") {
-      this.sortByRecent();
+    this.sortBy = s;
+    if (this.sortBy == "Earliest") {
+      this.sortByEarliest();
     }
     else {
-      this.sortByOldest();
+      this.sortByLatest();
     }
   }
 
   onSearch ($event) {
     this.rides = $event;
-    this.sortByRecent();
+    this.onToggleSort(this.sortBy);
   }
 
 
