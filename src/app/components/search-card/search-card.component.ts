@@ -15,8 +15,11 @@ export class SearchCardComponent implements OnInit {
   @Output() ridesSearch = new EventEmitter<Ride[]>();
   private rides: Ride[];
   private newSearchForm: FormGroup;
+  private startAt: Date = new Date();
 
-  constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
+  constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {
+      this.startAt.setHours(0, 0, 0, 0);
+  }
 
 
   ngOnInit() {
@@ -39,7 +42,7 @@ export class SearchCardComponent implements OnInit {
 // searches for matching ride by looking at arrival and departure location and date
   search() {
     this.rideService.searchRides(this.newSearchForm.value['departing_from']
-      , this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
+      , this.newSearchForm.value['arriving_at'], this.newSearchForm.value['departure_time'] )
       .then(rides => {
         this.rides = rides;
         this.ridesSearch.emit(this.rides);
