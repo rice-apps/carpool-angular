@@ -17,8 +17,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">
-            <div class="form-group">
-              <label for="numberInput">Max number of riders:</label>
+            <div class="form-group required">
+              <label for="numberInput" class="control-label">Max number of riders:</label>
               <!--This is a drop down menu type thing-->
               <select id="numberInput" formControlName="number_riders" required class="form-control form-control-lg">
                 <option>2</option>
@@ -40,10 +40,17 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <input class="form-control form-control-lg" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="date_time" placeholder="Date Time" ng-required="true">
-          <owl-date-time [hour12Timer]="true"
-                         [startAt]="startAt"
-                         [stepMinute]="15" #dt1></owl-date-time>
+          <div class="col-lg-6">
+            <div class="form-group required">
+              <label for="dateInput" class="control-label">Date and time:</label>
+              <input class="form-control form-control-lg required" id="dateInput" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="date_time" placeholder="Date Time" required>
+              <owl-date-time [hour12Timer]="true"
+                             [startAt]="startAt"
+                             [stepMinute]="15" #dt1></owl-date-time>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </div>
@@ -55,8 +62,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6">
-            <div class="form-group">
-              <label for="departureInput">Departing from:</label>
+            <div class="form-group required">
+              <label for="departureInput" class="control-label">Departing from:</label>
               <!--This is a drop down menu type thing-->
               <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg" >
                 <option>Rice</option>
@@ -67,8 +74,8 @@
 
           </div>
           <div class="col-lg-6">
-            <div class="form-group">
-              <label for="arrivalInput">Arriving at:</label>
+            <div class="form-group required">
+              <label for="arrivalInput" class="control-label">Arriving at:</label>
               <select id="arrivalInput" required formControlName="arriving_at" class="form-control form-control-lg">
                 <option>Rice</option>
                 <option>IAH</option>
@@ -92,6 +99,6 @@
       <!--</div>-->
     <!--</div>-->
 
-    <button class="btn btn-lg btn-primary btn-block" (click)="submit()">Submit</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!newRideForm.valid" (click)="submit()">Submit</button>
   </form>
 </div>
