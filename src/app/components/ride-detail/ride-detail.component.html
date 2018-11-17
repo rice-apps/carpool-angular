@@ -26,8 +26,8 @@
             <!--</h6>-->
           </div>
           <!--Click to join or leave ride-->
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-md btn-primary" style="position: absolute; top:40px; right:10px;  " (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
+          <button class="btn btn-md btn-primary" style="position: absolute; top:40px; right:10px; " (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
 
         </div>
       </div>
@@ -83,14 +83,17 @@
             <!--<h6 style="text-align: right; padding-right: 10px"  >-->
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
-          </div>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+            <button class="btn btn-md btn-primary" style = "margin-bottom: 15px;" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
+            <button class="btn btn-md btn-primary" style = "margin-bottom: 15px;" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+        </div>
+
+      </div>
 
         </div>
 
 
-      </div>
+
+
 
     </div>
 
@@ -113,7 +116,7 @@
               <i class="fas fa-envelope" aria-hidden="true"></i>
               <a [href]="'mailto:' + rider.email">{{rider.email}}</a><br>
               <i class="fa fa-mobile"></i>
-              <a [href]="'tel:' + rider.phone">(650)555-1998</a>
+              <a [href]="'tel:' + rider.phone">{{rider.phone}}</a>
             </p>
           </div>
         </div>
