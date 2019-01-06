@@ -37,7 +37,7 @@ export class NewRideComponent implements OnInit {
     this.newRide.arriving_at = this.newRideForm.value['arriving_at'];
     this.newRide.departing_datetime = this.newRideForm.value['date_time'];
     this.newRide.number_riders = this.newRideForm.value['number_riders'];
-    this.rideService.addRide(this.newRide)
+    this.rideService.addRide(this.newRide, JSON.parse(localStorage.getItem('currentUser')).user.username)
       .then((ride) => {
         console.log('RIDE:', ride);
         this.router.navigate(['/rides', ride._id]);

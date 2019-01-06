@@ -14,7 +14,8 @@ import {Router} from '@angular/router';
 export class SearchCardComponent implements OnInit {
   @Output() ridesSearch = new EventEmitter<Ride[]>();
   private rides: Ride[];
-  private newSearchForm: FormGroup;
+  newSearchForm: FormGroup;
+  startAt: Date = new Date();
 
   constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
 
@@ -23,11 +24,14 @@ export class SearchCardComponent implements OnInit {
     this.newSearchForm = this.fb.group({
       departing_from: [''],
       arriving_at: [''],
-      departure_time: ['']
+      search_depart_date: ['']
     });
 
-    this.rideService.searchRides(this.newSearchForm.value['departing_from'],
-      this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
+
+    this.rideService.searchRides(
+      this.newSearchForm.value['departing_from'],
+      this.newSearchForm.value['arriving_at'],
+      this.newSearchForm.value['search_depart_date'])
       .then(rides => {
         this.rides = rides;
         this.ridesSearch.emit(this.rides);
@@ -38,8 +42,11 @@ export class SearchCardComponent implements OnInit {
   }
 // searches for matching ride by looking at arrival and departure location and date
   search() {
-    this.rideService.searchRides(this.newSearchForm.value['departing_from']
-      , this.newSearchForm.value['arriving_at'], this.fb['departure_time'] )
+    console.log(this.newSearchForm);
+    this.rideService.searchRides(
+      this.newSearchForm.value['departing_from'],
+      this.newSearchForm.value['arriving_at'],
+      this.newSearchForm.value['search_depart_date'])
       .then(rides => {
         this.rides = rides;
         this.ridesSearch.emit(this.rides);

@@ -10,6 +10,7 @@ import {RideService} from "../../services/ride-service/ride.service";
 export class RideListComponent implements OnInit {
 
   private rides: Ride[];
+  private today = new Date();
 
   constructor(private rideService: RideService) { }
 
@@ -52,9 +53,14 @@ export class RideListComponent implements OnInit {
     }
   }
 
+  filterPastRides() {
+    this.rides = this.rides.filter(ride => new Date(ride.departing_datetime) >= this.today);
+  }
+
   onSearch ($event) {
     this.rides = $event;
     this.sortByRecent();
+    this.filterPastRides();
   }
 
 

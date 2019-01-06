@@ -11,7 +11,8 @@
                           Departing
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
-                          <select class="form-control" id="inlineFormCustomSelectPref" formControlName="departing_from">
+                          <select class="form-control" id="search_depart" formControlName="departing_from">
+                              <option value="" selected="selected">All</option>
                               <option value="Rice">Rice</option>
                               <option value="IAH">IAH</option>
                               <option value="Hobby">Hobby</option>
@@ -19,14 +20,14 @@
                       </form>
                   </div>
               </div>
-
               <div class="mb-2">
                   <div class="form-row">
                       <div class="col-4">
                           Arriving
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
-                          <select class="form-control" id="inlineFormCustomSelectPref1" formControlName="arriving_at">
+                          <select class="form-control" id="search_arrive" formControlName="arriving_at">
+                              <option value="" selected="selected">All</option>
                               <option value="Rice">Rice</option>
                               <option value="IAH">IAH</option>
                               <option value="Hobby">Hobby</option>
@@ -37,72 +38,16 @@
               <div class="mb-2">
                   <div class="form-row">
                       <div class="col-4">
-                          Date
-                      </div>
-                    <!--Searches for matching ride-->
-                      <form class="form-inline" [formGroup]="newSearchForm">
-                          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="01/01/19" formControlName="departure_time">
-                      </form>
-                  </div>
-
-              </div>
-              <div>
-                  <button class="btn-primary btn-md text-center" (click)="search()">
-                      Search!
-                  </button>
-                  <button class="btn-primary btn-md text-center" (click)="newRideForm()">
-                      Create a new ride?
-                  </button>
-              </div>
-          </div>
-      </form>
-  </div>
-</div>
-
-<!--MOBILE VIEW-->
-<div class="d-block d-sm-none">
-  <div class="card mt-2">
-      <form [formGroup]="newSearchForm">
-          <div class="card-body">
-              <div class="mb-2">
-                  <div class="form-row">
-                      <div class="col-4">
-                          Departing
+                          Departure Date
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
-                          <select class="form-control" id="inlineFormCustomSelectPref" formControlName="departing_from">
-                              <option value="Rice">Rice</option>
-                              <option value="IAH">IAH</option>
-                              <option value="Hobby">Hobby</option>
-                          </select>
+                          <input class="form-control" id="search_depart_date" [owlDateTime]="dateDepartSearch" [owlDateTimeTrigger]="dateDepartSearch" formControlName="search_depart_date" placeholder="Date">
+                          <owl-date-time [pickerType]="'calendar'"
+                                         [startAt]="startAt"
+                                         #dateDepartSearch>
+                          </owl-date-time>
                       </form>
                   </div>
-              </div>
-
-              <div class="mb-2">
-                  <div class="form-row">
-                      <div class="col-4">
-                          Arriving
-                      </div>
-                      <form class="form-inline" [formGroup]="newSearchForm">
-                          <select class="form-control" id="inlineFormCustomSelectPref1" formControlName="arriving_at">
-                              <option value="Rice">Rice</option>
-                              <option value="IAH">IAH</option>
-                              <option value="Hobby">Hobby</option>
-                          </select>
-                      </form>
-                  </div>
-              </div>
-              <div class="mb-2">
-                  <div class="form-row">
-                      <div class="col-4">
-                          Date
-                      </div>
-                      <form class="form-inline" [formGroup]="newSearchForm">
-                          <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="01/01/19" formControlName="departure_time">
-                      </form>
-                  </div>
-
               </div>
               <div>
                   <button class="btn-primary btn-md text-center" (click)="search()">
