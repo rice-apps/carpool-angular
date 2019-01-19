@@ -24,6 +24,7 @@ export class AuthService {
     return this.http.get(`${this.apiUrl}/auth?ticket=${ticket}`)
       .toPromise()
       .then(res => {
+        console.log(res.json);
         let result = res.json();
         if (result && result.success) {
           localStorage.setItem('currentUser', JSON.stringify(result));
