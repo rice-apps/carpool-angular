@@ -49,6 +49,8 @@ export class UserProfileComponent implements OnInit {
 
   edit() {
     this.router.navigate(['/profile/edit']);
+
+
   }
 
 }
