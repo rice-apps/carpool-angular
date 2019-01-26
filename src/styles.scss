@@ -80,9 +80,67 @@
    background-color: #fff;
  }
 
- [tabindex="-1"]:focus {
-   outline: 0 !important;
- }
+@font-face{
+  font-family: themify;
+  src:url(assets/fonts/themify.eot?-fvbane);
+  src:url(assets/fonts/themify.eot?#iefix-fvbane) format('embedded-opentype'),url(assets/fonts/themify.woff?-fvbane) format('woff'),url(assets/fonts/themify.ttf?-fvbane) format('truetype'),url(assets/fonts/themify.svg?-fvbane#themify) format('svg');
+  font-weight:400;
+  font-style:normal}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+.ti-3x {
+  font-size: 3em;
+}
+
+[class^=ti-], [class*=" ti-"] {
+  font-family: themify;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ti-user:before {
+  content:"\e602";
+}
+
+.ti-car:before {
+  content: "\e6b5";
+}
+
+.ti-money:before {
+  content: "\e68c";
+}
+
+.gradient-fill:before {
+  color: #fc73b4;
+  background: -moz-linear-gradient(top,#005c7a 0%,#5bc0de 100%);
+  background: -webkit-linear-gradient(top,#005c7a 0%,#5bc0de 100%);
+  background: linear-gradient(to bottom,#005c7a 0%,#5bc0de 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient {
+  background-image: -moz-linear-gradient( 135deg,#005c7a 0%,#5bc0de 100%);
+  background-image: -webkit-linear-gradient( 135deg,#005c7a 0%,#5bc0de 100%);
+  background-image: -ms-linear-gradient( 135deg,#005c7a 0%,#5bc0de 100%);
+  background-image: linear-gradient( 135deg,#005c7a 0%,#5bc0de 100%);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 
  hr {
    -webkit-box-sizing: content-box;
@@ -4743,6 +4801,47 @@
      width: 100%;
    }
  }
+
+.card.features {
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+@media (max-width:991px) {
+  .card.features {
+    margin-bottom: 2rem;
+  }
+  [class^="col-"]:last-child .card.features {
+    margin-bottom: 0;
+  }
+}
+
+.card.features:before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  color: #fc73b4;
+  background: -moz-linear-gradient(top, #005c7a 0%, #5bc0de 100%);
+  background: -webkit-linear-gradient(top, #005c7a 0%, #5bc0de 100%);
+  background: linear-gradient(to bottom, #005c7a 0%, #5bc0de 100%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.card.features:hover {
+  transform: translateY(-3px);
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
 
  .breadcrumb {
    display: -webkit-box;
