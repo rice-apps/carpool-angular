@@ -7,8 +7,8 @@
     <p class="lead text-center">The reign of Google Sheets is over</p>
     <hr class="my-4">
     <p class="lead ">
-      <a class="btn btn-outline-primary btn-lg" *ngIf ="!(loggedIn | async)" [attr.href]="authUrl" role="button">Login with netID not</a>
-      <a class="btn btn-outline-primary btn-lg" *ngIf ="(loggedIn | async )" (click)="navigateToRides()" role="button">GET RIDE!</a>
+      <a class="btn btn-secondary btn-lg" *ngIf ="!(loggedIn | async)" [attr.href]="authUrl" role="button">Login with netID</a>
+      <a class="btn btn-secondary btn-lg" *ngIf ="(loggedIn | async )" (click)="navigateToRides()" role="button">GET RIDE!</a>
     </p>
   </div>
 </div>
