@@ -50,8 +50,10 @@
             <p>
               <i class="fas fa-envelope" aria-hidden="true"></i>
               <a [href]="'mailto:' + rider.email">{{rider.email}}</a><br>
+            </p>
+            <p *ngIf="rider.phone">
               <i class="fa fa-mobile"></i>
-              <a [href]="'tel:' + rider.phone">{{rider.phone}}</a>
+              <a  [href]="'tel:' + rider.phone">{{rider.phone}}</a>
             </p>
           </div>
         </div>
@@ -112,9 +114,12 @@
             <p>
               <i class="fas fa-envelope" aria-hidden="true"></i>
               <a [href]="'mailto:' + rider.email">{{rider.email}}</a><br>
-              <i class="fa fa-mobile"></i>
-              <a [href]="'tel:' + rider.phone">{{rider.phone}}</a>
             </p>
+            <p *ngIf="rider.phone">
+              <i class="fa fa-mobile"></i>
+              <a  [href]="'tel:' + rider.phone">{{rider.phone}}</a>
+            </p>
+
           </div>
         </div>
       </div>
