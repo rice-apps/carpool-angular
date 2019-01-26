@@ -8,8 +8,10 @@
     <div class="card-body">
       <div class="text-center">
         <img
-          [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + newUser.username + '?theme=base&numcolors=4&size=220&fmt=svg'"
-          width="100" height="100">
+          [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + newUser.username + '?theme=base&numcolors=4&size=220&fmt=svg' "width="100" height="100">
+        <!--this is a way to make the avatars have specific colors  -->
+        <!--<img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + newUser.username + '?colors=4F6D7A&colors=429EA6&colors=153B50&numcolors=3&size=220&fmt=svg'"-->
+
 
 
         <h1>{{newUser.first_name}} {{newUser.last_name}}</h1>
