@@ -1,3 +1,76 @@
+<!--&lt;!&ndash;User profile info when they click on profile. User has username, first name, last name, phone, email. &ndash;&gt;-->
+
+<!--&lt;!&ndash; Add icon library &ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--&lt;!&ndash;<h1>{{newUser.first_name}}</h1>&ndash;&gt;-->
+<!--<div>-->
+<!--<div class="card mt-3">-->
+<!--<div class="card-body">-->
+<!--<div class="text-center">-->
+<!--<img-->
+<!--[src]="'http://tinygraphs.com/labs/isogrids/hexa/' + newUser.username + '?theme=base&numcolors=4&size=220&fmt=svg'"-->
+<!--width="100" height="100">-->
+
+
+<!--<h1>{{newUser.first_name}} {{newUser.last_name}}</h1>-->
+<!--&lt;!&ndash;<p class="title">Description</p>&ndash;&gt;-->
+<!--<p>{{newUser.phone}}</p>-->
+<!--<p><a [href]="'mailto:' + newUser.email" style="color: white"><button>{{newUser.email}}</button></a></p>-->
+<!--<button class="btn btn-lg btn-primary btn-block" (click)="edit()">Edit</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="card-body">-->
+<!--<div class="row">-->
+<!--<div class="col-12">-->
+<!--<h1 style="text-align: center">You've saved ${{money_saved}}!</h1>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--<div class="col-6">-->
+<!--<h1 style="text-align: center">Past rides</h1>-->
+<!--&lt;!&ndash;DESKTOP VIEW&ndash;&gt;-->
+<!--<div class="card-deck d-none d-sm-block" >-->
+<!--<div *ngFor="let ride of past_rides">-->
+<!--<app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;MOBILE VIEW&ndash;&gt;-->
+<!--<div class="card-deck d-block d-sm-none">-->
+<!--<div *ngFor="let ride of past_rides">-->
+<!--<app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-6">-->
+<!--<h1 style="text-align: center">Upcoming rides</h1>-->
+<!--&lt;!&ndash;DESKTOP VIEW&ndash;&gt;-->
+<!--<div class="card-deck d-none d-sm-block" >-->
+<!--<div *ngFor="let ride of future_rides">-->
+<!--<app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;MOBILE VIEW&ndash;&gt;-->
+<!--<div class="card-deck d-block d-sm-none">-->
+<!--<div *ngFor="let ride of future_rides">-->
+<!--<app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+<!--</div>-->
+
+
+
 <!--User profile info when they click on profile. User has username, first name, last name, phone, email. -->
 
 <!-- Add icon library -->
@@ -27,44 +100,51 @@
         <h1 style="text-align: center">You've saved ${{money_saved}}!</h1>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <h1 style="text-align: center">Past rides</h1>
-        <!--DESKTOP VIEW-->
-        <div class="card-deck d-none d-sm-block" >
-          <div *ngFor="let ride of past_rides">
-              <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
 
-          </div>
-        </div>
-        <!--MOBILE VIEW-->
-        <div class="card-deck d-block d-sm-none">
+    <div class="row">
+
+      <!--DESKTOP VIEW-->
+      <div class="col-6">
+        <div class="card-deck d-none d-sm-block" >
+          <h1 style="text-align: center">Past Rides</h1>
           <div *ngFor="let ride of past_rides">
             <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-
 
           </div>
         </div>
       </div>
+      <!--MOBILE VIEW-->
+
+      <div class="card-deck d-block d-sm-none">
+        <h1 style="text-align: left">Past Rides</h1>
+        <div *ngFor="let ride of past_rides">
+          <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+
+
+        </div>
+      </div>
+
+
+      <!--DESKTOP VIEW-->
       <div class="col-6">
-        <h1 style="text-align: center">Upcoming rides</h1>
-        <!--DESKTOP VIEW-->
         <div class="card-deck d-none d-sm-block" >
+          <h1 style="text-align: center">Upcoming rides</h1>
+          <!--change ride to future ride only-->
           <div *ngFor="let ride of future_rides">
             <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
           </div>
         </div>
-        <!--MOBILE VIEW-->
-        <div class="card-deck d-block d-sm-none">
-          <div *ngFor="let ride of future_rides">
-            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-          </div>
+      </div>
+      <!--MOBILE VIEW-->
+
+      <div class="card-deck d-block d-sm-none">
+        <h1 style="text-align: left">Upcoming rides</h1>
+        <div *ngFor="let ride of future_rides">
+          <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
         </div>
       </div>
     </div>
-  </div>
 
 
-
-
+</div>
 </div>

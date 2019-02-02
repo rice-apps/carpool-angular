@@ -3,6 +3,7 @@ import {RideService} from '../../services/ride-service/ride.service';
 import {Ride} from '../../models/ride';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-ride-detail',
@@ -10,7 +11,6 @@ import {FormBuilder} from '@angular/forms';
   styleUrls: ['./ride-detail.component.scss']
 })
 export class RideDetailComponent implements OnInit {
-
   ride: Ride;
 
   constructor(private rideService: RideService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router)  { }
