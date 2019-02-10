@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Ride} from '../../models/ride';
 import {RideService} from '../../services/ride-service/ride.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth-service/auth.service';
 
 @Component({
   selector: 'app-new-ride',
@@ -18,7 +19,8 @@ export class NewRideComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private rideService: RideService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
     this.startAt.setHours(0, 0, 0, 0);
   }
 
@@ -32,14 +34,12 @@ export class NewRideComponent implements OnInit {
   }
   // when submit is pressed, the user information is updated and a new ride is created
   submit() {
-    console.log('in submit');
     this.newRide.departing_from = this.newRideForm.value['departing_from'];
     this.newRide.arriving_at = this.newRideForm.value['arriving_at'];
     this.newRide.departing_datetime = this.newRideForm.value['date_time'];
     this.newRide.number_riders = this.newRideForm.value['number_riders'];
-    this.rideService.addRide(this.newRide, JSON.parse(localStorage.getItem('currentUser')).user.username)
+    this.rideService.addRide(this.newRide, this.authService.getCurrentUser()._id)
       .then((ride) => {
-        console.log('RIDE:', ride);
         this.router.navigate(['/rides', ride._id]);
       });
   }

@@ -24,19 +24,20 @@ export class AuthService {
     return this.http.get(`${this.apiUrl}/auth?ticket=${ticket}`)
       .toPromise()
       .then(res => {
-        console.log(res.json);
         let result = res.json();
         console.log(result);
         if (result && result.success) {
+          if (!result.user._id) {
+            console.log('Fatal: no id was provided during authentication');
+            return;
+          }
           localStorage.setItem(this.currentUserKey, JSON.stringify(result));
-
           this.loggedIn.next(true);
         } else {
           console.log("Authentication failed")
         }
         return res.json();
       })
-
       .catch(err => console.log(err));
   }
 

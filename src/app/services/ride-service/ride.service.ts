@@ -35,8 +35,8 @@ export class RideService {
       .catch(err => console.log(err));
   }
 
-  addRide(ride: Ride, username: string): Promise<any> {
-    return this.http.post(`${this.apiUrl}/rides`, {ride: ride, username: username}, this.jwt())
+  addRide(ride: Ride, user_id: string): Promise<any> {
+    return this.http.post(`${this.apiUrl}/rides`, {ride: ride, user_id: user_id}, this.jwt())
       .toPromise()
       .then(res => res.json() as Ride)
       .catch(err => console.log(err));
@@ -49,8 +49,8 @@ export class RideService {
       .catch(err => console.log(err));
   }
 
-  postUserToRide(ride_id: string, username: string): Promise<any> {
-    return this.http.post(`${this.apiUrl}/rides/${ride_id}/book`, {username: username}, this.jwt())
+  postUserToRide(ride_id: string, user_id: string): Promise<any> {
+    return this.http.post(`${this.apiUrl}/rides/${ride_id}/book`, {user_id: user_id}, this.jwt())
       .toPromise()
       .then(res => res.json())
       .catch(err => console.log(err));
@@ -76,12 +76,4 @@ export class RideService {
       .then(res => res.json())
       .catch(err => console.log(err));
   }
-
-    // deleteRide(ride_id: string): Promise<any> {
-    //   return this.http.delete(`${this.apiUrl}/rides/${ride_id}`, this.jwt())
-    //     .toPromise()
-    //     .then(res => res.json())
-    //     .catch(err => console.log(err));
-    // }
-
 }

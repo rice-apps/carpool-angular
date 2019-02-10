@@ -70,7 +70,11 @@ const routes: Routes = [
   {
     path: 'profileerror',
     component: ProfileErrorComponent
-  }
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({

@@ -42,7 +42,7 @@ export class UserProfileComponent implements OnInit {
       }
 
       // Load past rides
-      this.past_rides = await this.rideService.getPastRidesByUser(this.user.username.toString());
+      this.past_rides = await this.rideService.getPastRidesByUser(params['_id']);
       for (const ride of this.past_rides) {
         const added_thing = this.ride_costs[ride.departing_from.toString()][ride.arriving_at.toString()];
         if (added_thing !== undefined) {
@@ -51,7 +51,7 @@ export class UserProfileComponent implements OnInit {
       }
 
       // Load future rides
-      this.future_rides = await this.rideService.getFutureRidesByUser(this.user.username.toString());
+      this.future_rides = await this.rideService.getFutureRidesByUser(params['_id']);
       this.fullyLoaded = Promise.resolve(true);
     });
   }

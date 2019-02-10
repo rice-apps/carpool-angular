@@ -54,7 +54,7 @@ export class UserProfileEditComponent implements OnInit {
     this.user.phone = this.userForm.value['phone_number'] || this.user.phone;
     this.userService.editUserProfile(this.user)
       .then((user) => {
-        this.router.navigate(['/rides']);
+        this.router.navigate([`/profile/${this.user._id}`]);
       });
   }
 

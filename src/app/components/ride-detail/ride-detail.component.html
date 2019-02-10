@@ -1,5 +1,5 @@
 <!--When user clicks on ride card, the ride detail page will appear, showing more details of the ride like who else is on it-->
-<div class="container mt-5">
+<div *ngIf="fullyLoaded | async" class="container mt-5">
 
   <!--Desktop View-->
   <div class="card-deck d-none d-sm-block">

@@ -9,18 +9,16 @@ import {RideService} from "../../services/ride-service/ride.service";
 })
 export class RideListComponent implements OnInit {
 
+  public fullyLoaded: Promise<boolean>;
   private rides: Ride[];
   private today = new Date();
 
   constructor(private rideService: RideService) { }
 
   ngOnInit() {
-    // this.rideService.getRides()
-    //   .then(rides => this.rides = rides)
-    //   .catch(err => console.log(err));
   }
 
-  sortByRecent(){
+  sortByRecent() {
     this.rides.sort(function(a, b) {
       if (a.departing_datetime < b.departing_datetime) {
         return 1;
@@ -32,7 +30,7 @@ export class RideListComponent implements OnInit {
     });
   }
 
-  sortByOldest(){
+  sortByOldest() {
     this.rides.sort(function(a, b) {
       if (a.departing_datetime > b.departing_datetime) {
         return 1;
@@ -53,9 +51,4 @@ export class RideListComponent implements OnInit {
     this.sortByRecent();
     this.filterPastRides();
   }
-
-
-
-
-
 }

@@ -4,6 +4,7 @@ import {Ride} from '../../models/ride';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
+import {AuthService} from '../../services/auth-service/auth.service';
 
 @Component({
   selector: 'app-ride-detail',
@@ -13,52 +14,53 @@ import {Observable} from 'rxjs/Observable';
 export class RideDetailComponent implements OnInit {
   ride: Ride;
 
-  constructor(private rideService: RideService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router)  { }
+  public fullyLoaded: Promise<boolean>;
+  private readonly currentUser = this.authService.getCurrentUser();
+
+  constructor(private rideService: RideService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router,
+              private authService: AuthService)  { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.rideService.getRide(params['_id'])
-        .then(ride => {
-          this.ride = ride;
-          console.log('RETURNED RIDE:', this.ride);
-        });
-    });
+    this.route.params.subscribe(async params => {
+      this.ride = await this.rideService.getRide(params['_id']);
+      if (!this.ride) {
+        console.log(`ride ${params['_id']} could not be found`);
+        return;
+      }
+
+      this.fullyLoaded = Promise.resolve(true);
+    );
   }
 
-// allows current user to join ride
+  /**
+   * Allow the current user to join this ride
+   */
   postUserToRide() {
-    console.log(JSON.parse(localStorage.getItem('currentUser')));
-    this.rideService.postUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username)
+    this.rideService.postUserToRide(this.ride._id, this.currentUser._id)
       .then(ride => {
         this.ride = ride;
-        console.log(this.ride._id);
       });
   }
 
-  // allows user to leave ride
+  /**
+   * Remove the current user from this ride
+   */
   removeUserToRide() {
-    this.rideService.removeUserToRide(this.ride._id, JSON.parse(localStorage.getItem('currentUser')).user.username)
+    this.rideService.removeUserToRide(this.ride._id, this.currentUser._id)
       .then(ride => this.ride = ride);
       alert('You have been removed from this ride.');
       this.router.navigate(['/rides']);
-    //   this.rideService.deleteRide(this.ride._id)
-    //     .then(ride => console.log('ride is deleted!!' + ride));
-    // }
-    // this.ride = ride;
   }
 
   departParseDay(rideTime: String) {
     if (rideTime) {
       return rideTime.split(' ')[1].slice(0, -1);
     }
-    // console.log(rideTime.split(','));
   }
 
-// check to see if current user exists in the ride
   checkUser() {
-    console.log('CHECKING RIDE:', this.ride);
     for (let i = 0; i < this.ride.riders.length; i++) {
-      if (this.ride.riders[i].username === JSON.parse(localStorage.getItem('currentUser')).user.username ) {
+      if (this.ride.riders[i]._id.toString() === this.currentUser._id.toString()) {
         return false;
       }
     }
