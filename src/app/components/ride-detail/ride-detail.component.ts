@@ -29,7 +29,7 @@ export class RideDetailComponent implements OnInit {
       }
 
       this.fullyLoaded = Promise.resolve(true);
-    );
+    });
   }
 
   /**

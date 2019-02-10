@@ -28,7 +28,7 @@
           <!--Click to join or leave ride-->
           <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
           <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride full</button>
+          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
       </div>
     </div>
