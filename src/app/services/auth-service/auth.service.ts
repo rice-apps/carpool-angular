@@ -44,10 +44,10 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       localStorage.removeItem(this.currentUserKey);
       this.loggedIn.next(false);
+      alert('Successfully logged out.');
       this.router.navigate(['/']);
       return resolve("Logged out");
     });
-
   }
 
   get isLoggedIn() {

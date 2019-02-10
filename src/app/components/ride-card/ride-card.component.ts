@@ -25,9 +25,11 @@ export class RideCardComponent {
     }
     // console.log(rideTime.split(','));
   }
-    // converts every month to shortened version
 
-
+  /**
+   * Converts every month to its English version
+   * @param rideTime
+   */
   departParseMonth(rideTime: String) {
     if (rideTime) {
       const temp =  rideTime.split(' ')[0];
@@ -58,14 +60,4 @@ export class RideCardComponent {
       }
     }
   }
-
 }
-  // isitactive(){
-  //   if (ride.riders.length == 1){
-  //     let current = document.getElementsByClassName('active');
-  //     current[0].className = current[0].className.replace(' active', '');
-  //     this.className += ' active';
-  // };
-  // }
-
-

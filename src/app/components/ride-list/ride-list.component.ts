@@ -44,15 +44,6 @@ export class RideListComponent implements OnInit {
     });
   }
 
-  onToggleSort(s: String) {
-    if (s == "Recent") {
-      this.sortByRecent();
-    }
-    else {
-      this.sortByOldest();
-    }
-  }
-
   filterPastRides() {
     this.rides = this.rides.filter(ride => new Date(ride.departing_datetime) >= this.today);
   }

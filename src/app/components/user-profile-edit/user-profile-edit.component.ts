@@ -42,8 +42,6 @@ export class UserProfileEditComponent implements OnInit {
       }
 
       this.fullyLoaded = Promise.resolve(true);
-
-      console.log("LOADING USER:", this.user);
     });
   }
 
@@ -51,9 +49,9 @@ export class UserProfileEditComponent implements OnInit {
    * Submit to edit profile endoint
    */
   submit() {
-    this.user.first_name = this.userForm.value['first_name'];
-    this.user.last_name = this.userForm.value['last_name'];
-    this.user.phone = this.userForm.value['phone_number'];
+    this.user.first_name = this.userForm.value['first_name'] || this.user.first_name;
+    this.user.last_name = this.userForm.value['last_name'] || this.user.last_name;
+    this.user.phone = this.userForm.value['phone_number'] || this.user.phone;
     this.userService.editUserProfile(this.user)
       .then((user) => {
         this.router.navigate(['/rides']);
