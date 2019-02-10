@@ -11,19 +11,17 @@ import {RideDetailComponent} from './components/ride-detail/ride-detail.componen
 import {UserProfileEditComponent} from './components/user-profile-edit/user-profile-edit.component';
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
 import {ProfileErrorComponent} from './components/profile-error/profile-error.component';
+import {Profile} from 'selenium-webdriver/firefox';
 
 const routes: Routes = [
-
   {
     path: '',
     component: LandingPageComponent
   },
-
   {
     path: 'auth',
     component: AuthComponent
   },
-
   {
     path: 'rides',
     canActivate: [AuthGuard],
@@ -48,14 +46,30 @@ const routes: Routes = [
     path: 'profile',
     canActivate: [AuthGuard],
     children: [
-      {path: 'edit', component: UserProfileEditComponent},
-      {path: ':username', component: UserProfileComponent},
+      {
+        path: '',
+        redirectTo: '_id',
+        pathMatch: 'full'
+      },
+      {
+        path: ':_id',
+        children: [
+          {
+            path: '',
+            component: UserProfileComponent,
+            pathMatch: 'full'
+          },
+          {
+            path: 'edit',
+            component: UserProfileEditComponent
+          }
+        ]
+      },
     ]
   },
   {
     path: 'profileerror',
     component: ProfileErrorComponent
-
   }
 ];
 

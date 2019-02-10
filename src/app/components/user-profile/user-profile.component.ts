@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Ride} from '../../models/ride';
-import {RideListComponent} from '../ride-list/ride-list.component';
 import {RideService} from '../../services/ride-service/ride.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user-service/user.service';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {User} from '../../models/user';
 
 @Component({
@@ -13,9 +12,9 @@ import {User} from '../../models/user';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  newUser: User;
+  user: User;
 
-  private rides: Ride[];
+  public fullyLoaded: Promise<boolean>;
   public past_rides: Ride[];
   public future_rides: Ride[];
   public money_saved = 0;
@@ -24,31 +23,56 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private userService: UserService, private route: ActivatedRoute,
               private rideService: RideService, private fb: FormBuilder, private router: Router) {}
+
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.userService.getUser(params['username'])
-        .then(user => {
-          this.newUser = user;
-          this.rideService.getPastRidesByUser(this.newUser.username.toString())
-            .then(rides => {this.past_rides = rides; console.log(rides);
-              for (const ride of this.past_rides) {
-                const added_thing = this.ride_costs[ride.departing_from.toString()][ride.arriving_at.toString()];
-                if (added_thing !== undefined) {
-                  this.money_saved += added_thing / ride.riders.length;
-                }}})
-            .catch(err => console.log(err));
-          this.rideService.getFutureRidesByUser(this.newUser.username.toString())
-            .then(rides => {this.future_rides = rides; console.log(rides); })
-            .catch(err => console.log(err));
-        });
+    this.route.params.subscribe(async params => {
+      // Reroute if the parameter is undefined
+      if (!params['_id'] || params['_id'] === '') {
+        this.router.navigate(['/profileerror']);
+        return;
+      }
+
+      // Get current user
+      this.user = await this.userService.getUserProfile(params['_id']);
+
+      // If the user does not exist, redirect
+      if (!this.user) {
+        this.router.navigate(['/profileerror']);
+        return;
+      }
+
+      // Load past rides
+      this.past_rides = await this.rideService.getPastRidesByUser(this.user.username.toString());
+      for (const ride of this.past_rides) {
+        const added_thing = this.ride_costs[ride.departing_from.toString()][ride.arriving_at.toString()];
+        if (added_thing !== undefined) {
+          this.money_saved += added_thing / ride.riders.length;
+        }
+      }
+
+      // Load future rides
+      this.future_rides = await this.rideService.getFutureRidesByUser(this.user.username.toString());
+      this.fullyLoaded = Promise.resolve(true);
     });
-    // this.rideService.getRides()
-    //   .then(rides => {this.rides = rides; console.log(rides); })
-    //   .catch(err => console.log(err));
   }
 
+  /**
+   * Take us to the edit page
+   */
   edit() {
-    this.router.navigate(['/profile/edit']);
+    this.router.navigate([this.router.url + '/edit']);
   }
 
+  /**
+   * Format a phone number string based on a universal format (xxx) xxx-xxxx
+   * @param phoneNumberString the string to format
+   */
+  formatPhoneNumber(phoneNumberString) {
+    const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return phoneNumberString;
+  }
 }

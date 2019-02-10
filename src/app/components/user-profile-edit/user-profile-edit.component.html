@@ -1,13 +1,12 @@
 <!--This needs a desktop and mobile version and needs to be cleaned up. When user wants to edit their profile information, they can enter based on corresponding questions-->
 
-<div class="container profile-container mt-5">
-  <form [formGroup]="newUserForm">
+<div *ngIf="fullyLoaded | async" class="container profile-container mt-5">
+  <form [formGroup]="userForm">
     <div class="card mb-4">
       <div class="card-body">
         <h4>Tell us about yourself!</h4>
       </div>
     </div>
-
     <!--<div class="card mb-4">-->
       <!--<div class="card-header">-->
         <!--What is your name?-->
@@ -19,7 +18,6 @@
       <!--</div>-->
 
     <!--</div>-->
-
     <div class="card mb-4">
       <div class="card-header">
         What is your name?
@@ -28,34 +26,32 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="form-group">
-              <input type="text" class="form-control form-control-lg" id="firstName" formControlName="first_name" placeholder="First Name" [(ngModel)]="newUser.first_name">
+              <input type="text" class="form-control form-control-lg" id="firstName" formControlName="first_name" placeholder={{user.first_name}}>
             </div>
 
           </div>
           <div class="col-lg-6">
             <div class="form-group">
-              <input type="text" class="form-control form-control-lg" id="lastName" formControlName="last_name" placeholder="Last Name" [(ngModel)]="newUser.last_name">
+              <input type="text" class="form-control form-control-lg" id="lastName" formControlName="last_name" placeholder={{user.last_name}}>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="card mb-4">
       <div class="card-header">
         What is your phone number?
       </div>
       <div class="card-body">
         <div class="row">
-          <input type="text" class="form-control form-control-lg" id="phoneNumber" formControlName="phone_number" placeholder="Optional" [(ngModel)]="newUser.phone">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <input type="tel" class="form-control form-control-lg" id="phoneNumber" formControlName="phone_number" placeholder={{user.phone}}>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
-
-
-
+    <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="submit()">Submit</button>
   </form>
-
-  <button class="btn btn-lg btn-primary btn-block" (click)="submit()">Submit</button>
 </div>

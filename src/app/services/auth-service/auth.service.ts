@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {Headers, Http, RequestOptions} from '@angular/http';
 import {Router} from "@angular/router";
 import {Observable, Subject, BehaviorSubject} from "rxjs";
 import {CONFIG} from "../../config";
@@ -8,12 +8,12 @@ import {CONFIG} from "../../config";
 export class AuthService {
 
   private apiUrl: string = CONFIG.api_url;
+  private readonly currentUserKey = 'currentUser';
 
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-
   constructor(private http: Http, private router: Router) {
-    if (localStorage.getItem('currentUser')) {
+    if (localStorage.getItem(this.currentUserKey)) {
       this.loggedIn.next(true);
     } else {
       this.loggedIn.next(false);
@@ -26,8 +26,9 @@ export class AuthService {
       .then(res => {
         console.log(res.json);
         let result = res.json();
+        console.log(result);
         if (result && result.success) {
-          localStorage.setItem('currentUser', JSON.stringify(result));
+          localStorage.setItem(this.currentUserKey, JSON.stringify(result));
 
           this.loggedIn.next(true);
         } else {
@@ -41,7 +42,7 @@ export class AuthService {
 
   public logout(): Promise<any> {
     return new Promise((resolve, reject) => {
-      localStorage.removeItem('currentUser');
+      localStorage.removeItem(this.currentUserKey);
       this.loggedIn.next(false);
       this.router.navigate(['/']);
       return resolve("Logged out");
@@ -50,7 +51,7 @@ export class AuthService {
   }
 
   get isLoggedIn() {
-    if (localStorage.getItem('currentUser')) {
+    if (localStorage.getItem(this.currentUserKey)) {
       this.loggedIn.next(true);
     } else {
       this.loggedIn.next(false);
@@ -58,12 +59,26 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
-  get userLoggedIn() {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser) {
-      return currentUser;
+  /**
+   * Get the JWT token based on the current user
+   */
+  public jwt(): RequestOptions {
+    const currentUser = this.getCurrentUser()._id;
+    if (currentUser && currentUser._id) {
+      const headers = new Headers({ 'x-access-token': currentUser.user.token });
+      return new RequestOptions({ headers: headers });
+    }
+  }
+
+  /**
+   * Get the current user as stored in the local cache
+   */
+  public getCurrentUser() {
+    const parsedStore = JSON.parse(localStorage.getItem(this.currentUserKey));
+    if (parsedStore) {
+      return parsedStore.user;
     } else {
-      return null;
+      // TODO: error handle
     }
   }
 }

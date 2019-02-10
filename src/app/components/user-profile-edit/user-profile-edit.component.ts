@@ -13,33 +13,51 @@ import {Router} from '@angular/router';
 })
 export class UserProfileEditComponent implements OnInit {
 
-  newUserForm: FormGroup;
-  newUser: User;
-  // tempUser: User;
+  public fullyLoaded: Promise<boolean>;
+  public userForm: FormGroup;
+  public user: User;
 
   constructor(private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.newUserForm = this.fb.group({
+    this.userForm = this.fb.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      phone_number: ['', Validators.required],
+      phone_number: [''],
     });
 
-    this.userService.getSelf(JSON.parse(localStorage.getItem('currentUser')).user.username)
-      .then(user => this.newUser = user);
-  }
-// submit to edit profile information
-  submit() {
+    this.route.params.subscribe(async params => {
+      // Reroute if the parameter is undefined
+      if (!params['_id'] || params['_id'] === '') {
+        this.router.navigate(['/profileerror']);
+      }
 
-    this.newUser.first_name = this.newUserForm.value['first_name'];
-    this.newUser.last_name = this.newUserForm.value['last_name'];
-    this.newUser.phone = this.newUserForm.value['phone_number'];
-    this.userService.editUser(this.newUser)
+      // Get current user
+      this.user = await this.userService.getUserProfile(params['_id']);
+
+      // If the user does not exist, redirect
+      if (!this.user) {
+        this.router.navigate(['/profileerror']);
+        return;
+      }
+
+      this.fullyLoaded = Promise.resolve(true);
+
+      console.log("LOADING USER:", this.user);
+    });
+  }
+
+  /**
+   * Submit to edit profile endoint
+   */
+  submit() {
+    this.user.first_name = this.userForm.value['first_name'];
+    this.user.last_name = this.userForm.value['last_name'];
+    this.user.phone = this.userForm.value['phone_number'];
+    this.userService.editUserProfile(this.user)
       .then((user) => {
         this.router.navigate(['/rides']);
       });
-
   }
 
 }

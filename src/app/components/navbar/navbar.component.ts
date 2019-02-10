@@ -13,34 +13,31 @@ export class NavbarComponent implements OnInit {
 
   private loggedIn: Observable<boolean>;
   private authUrl: string = `${CONFIG.cas_auth_url}?service=${CONFIG.service_url}`;
-  private username: string = '';
+  private _id: string = '';
 
   constructor(private authService: AuthService, private router: Router) {
   }
+
   ngOnInit() {
     this.loggedIn = this.authService.isLoggedIn;
     this.loggedIn.subscribe((val) => {
       if (val) {
-        this.username = this.authService.userLoggedIn.user.username;
+        this._id = this.authService.getCurrentUser()._id;
       } else {
-        this.username = '';
+        this._id = '';
       }
     });
-
   }
+
   profile() {
-    this.router.navigate(['/profile/' + this.username.toString()]);
+    this.router.navigate(['/profile/' + this._id]);
   }
 
   logout() {
     this.authService.logout()
       .then(() => {
         this.router.navigate(['/']);
-        this.username = '';
+        this._id = '';
       });
   }
-
-  // profile() {
-  //   this.router.navigate(['/profile']);
-  // }
 }
