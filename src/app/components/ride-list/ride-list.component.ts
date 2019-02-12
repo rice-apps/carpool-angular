@@ -10,7 +10,7 @@ import {RideService} from "../../services/ride-service/ride.service";
 export class RideListComponent implements OnInit {
 
   public fullyLoaded: Promise<boolean>;
-  private rides: Ride[];
+  rides: Ride[];
   private today = new Date();
 
   constructor(private rideService: RideService) { }
