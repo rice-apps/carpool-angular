@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {AuthService} from "../../services/auth-service/auth.service";
-import { CONFIG } from "../../config";
-import {Router} from "@angular/router";
+import {Observable} from 'rxjs';
+import {AuthService} from '../../services/auth-service/auth.service';
+import { CONFIG } from '../../config';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +12,9 @@ import {Router} from "@angular/router";
 export class NavbarComponent implements OnInit {
 
   private loggedIn: Observable<boolean>;
-  private authUrl: string = `${CONFIG.cas_auth_url}?service=${CONFIG.service_url}`;
-  private _id: string = '';
+
+  private authUrl = `${CONFIG.cas_auth_url}?service=${CONFIG.service_url}`;
+  private _id = '';
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -39,5 +40,19 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/']);
         this._id = '';
       });
+  }
+
+  // profile() {
+  //   this.router.navigate(['/profile']);
+  // }
+  // this routes page to /rides/new
+  newRideForm() {
+    this.router.navigate(['/rides/new']);
+  }
+
+  // this routes page to /rides
+  navigateToRides() {
+    this.router.navigate(['/rides'])
+      .then((success) => console.log(success));
   }
 }

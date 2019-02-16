@@ -11,6 +11,8 @@
           [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + user.username + '?theme=base&numcolors=4&size=220&fmt=svg'"
           width="100" height="100">
         <h1>{{user.first_name}} {{user.last_name}}</h1>
+        <!--this is a way to make the avatars have specific colors  -->
+        <!--<img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + newUser.username + '?colors=4F6D7A&colors=429EA6&colors=153B50&numcolors=3&size=220&fmt=svg'"-->
         <!--<p class="title">Description</p>-->
         <p>{{formatPhoneNumber(user.phone)}}</p>
         <p><a [href]="'mailto:' + user.email" style="color: white"><button>{{user.email}}</button></a></p>
