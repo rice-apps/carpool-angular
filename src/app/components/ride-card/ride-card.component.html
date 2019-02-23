@@ -7,8 +7,8 @@
     <div class="card-header nopadding" [routerLink]="['/rides', ride._id]" data-toggle="collapse" >
       <div class="row nopadding">
         <!--shows calendar date in a pretty way-->
-          <div class="box nopadding .gradient-fill"  >
-            <div class="date center" style="font-size: 45px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
+          <div class="box nopadding" style="background-color: #FF5733">
+            <div class="date center" style="font-size: 40px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 16px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 14px;"><b>{{departParseYear(ride.departing_datetime | date:'longDate')}}</b></div>
           <!--</div>-->
@@ -52,7 +52,7 @@
     <div class="card-header nopadding" [routerLink]="['/rides', ride._id]" data-toggle="collapse" [attr.data-target]="'#' + ride._id" >
       <div class="row">
         <div class="col col-3">
-          <div class="box nopadding" style="background-color: #008cba" >
+          <div class="box nopadding" style="background-color: #FF5733" >
             <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 14px;"><b>{{departParseYear(ride.departing_datetime | date:'longDate')}}</b></div>
@@ -66,6 +66,7 @@
           <!--<h6 style="text-align: right; padding-right: 10px"  >-->
           <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
           <!--</h6>-->
+          <h5> # riders: {{ride.riders.length}}/{{ride.number_riders}} </h5>
         </div>
       </div>
 
