@@ -2,7 +2,8 @@
 
 <div class="container new-ride-container mt-5">
 
-  <form [formGroup]="newRideForm">
+
+  <form [formGroup]="newRideForm" (ngSubmit)="submit()">
 
     <div class="card mb-4">
       <div class="card-body">
@@ -86,19 +87,23 @@
         </div>
       </div>
     </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        Any extra notes
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="comments_input">Comments:</label>
+              <textarea class="form-control form-control-lg" formControlName="comments_input" id="comments_input" rows="3" placeholder="Meeting location, etc.." ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!--<div class="card mb-4">-->
-      <!--<div class="card-header">-->
-        <!--Where are you meeting?-->
-      <!--</div>-->
-      <!--<div class="card-body">-->
-        <!--<div class="form-group">-->
-          <!--<label for="meetingInput">Meeting at:</label>-->
-          <!--<input required formControlName="meeting_at" type="text" class="form-control-lg" id="meetingInput" placeholder="Sallyport">-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
 
-    <button type="submit" class="btn btn-lg btn-outline-primary btn-block" [disabled]="!newRideForm.valid" (click)="submit()">Submit</button>
+    <button type="submit" class="btn btn-lg btn-outline-primary btn-block" [disabled]="!newRideForm.valid" >Submit</button>
   </form>
 </div>

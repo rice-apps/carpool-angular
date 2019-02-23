@@ -31,7 +31,9 @@
           <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
           <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
+
       </div>
+      <h5> Comments: {{ride.comments_input}} </h5>
     </div>
 
     <!--Riders-->
