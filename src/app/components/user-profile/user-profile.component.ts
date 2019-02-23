@@ -27,19 +27,19 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(async params => {
       // Reroute if the parameter is undefined
-      if (!params['_id'] || params['_id'] === '') {
-        this.router.navigate(['/profileerror']);
-        return;
-      }
+      // if (!params['_id'] || params['_id'] === '') {
+      //   this.router.navigate(['/profileerror']);
+      //   return;
+      // }
 
       // Get current user
       this.user = await this.userService.getUserProfile(params['_id']);
 
       // If the user does not exist, redirect
-      if (!this.user) {
-        this.router.navigate(['/profileerror']);
-        return;
-      }
+      // if (!this.user) {
+      //   this.router.navigate(['/profileerror']);
+      //   return;
+      //}
 
       // Load past rides
       this.past_rides = await this.rideService.getPastRidesByUser(params['_id']);
