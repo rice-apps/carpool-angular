@@ -21,8 +21,8 @@ export class AuthComponent implements OnInit {
       this.authService.authenticate(params['ticket'])
         .then((res) => {
           console.log(res);
-          if (res.user.is_new) {
-            this.router.navigate(['/profile/edit']);
+          if (res.user.first_name == null) {
+            this.router.navigate(['/profile/:user/edit']);
           } else {
             this.router.navigate(['/rides']);
           }

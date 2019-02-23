@@ -9,7 +9,7 @@
       <div class="card-header nopadding">
         <div class="row nopadding">
           <!--<div class="col">-->
-          <div class="box nopadding" style="background-color: #008cba">
+          <div class="box nopadding" style="background-color: #FF5733">
             <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime |
               date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime |
@@ -20,15 +20,16 @@
             <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
             <!--<h4> {{number_of_riders}}</h4>-->
             <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
+            <h5> # riders: {{ride.riders.length}}/{{ride.number_riders}} </h5>
             <!--<h4> Meeting at: {{ride.meeting_location}} </h4>-->
             <!--<h6 style="text-align: right; padding-right: 10px"  >-->
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
           </div>
           <!--Click to join or leave ride-->
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
       </div>
     </div>
@@ -42,6 +43,7 @@
             <img
               [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?theme=base&numcolors=4&size=220&fmt=svg'"
               alt="mpo1" width="50%" height="100%">
+            <!--<img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?colors=FF5733&colors=FFA500&colors=FF0000&numcolors=3&size=220&fmt=svg'" width="50%" height="100%">-->
           </div>
           <div class="col-sm-6 align-self-center">
             <h2>
@@ -70,7 +72,7 @@
       <div class="card-header nopadding">
         <div class="row">
           <div class="col col-3">
-            <div class="box nopadding" style="background-color: #008cba">
+            <div class="box nopadding" style="background-color: #FF5733">
               <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime |
                 date:'longDate')}}</b></div>
               <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime |
@@ -86,9 +88,9 @@
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
           </div>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 70px; right: 15px" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 70px; right: 15px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
-
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 70px; right: 15px" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 70px; right: 15px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
 
 
