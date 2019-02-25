@@ -2,6 +2,7 @@
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
+const { CONFIG } = require('./src/app/config.ts');
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -12,8 +13,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
-  //baseUrl: 'http://carpool-riceapps.surge.sh/',
+  baseUrl: CONFIG.service_url,
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
