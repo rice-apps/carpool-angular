@@ -21,11 +21,11 @@ export class AuthComponent implements OnInit {
       this.authService.authenticate(params['ticket'])
         .then((res) => {
           console.log(res);
-          // if (res.user.first_name == null) {
-          //   this.router.navigate(['/profile/:user/edit']);
-          // } else {
+           if (res.user.first_name == null) {
+            this.router.navigate(['/profile/'+res.user._id+'/edit']);
+          } else {
           this.router.navigate(['/rides']);
-          // }
+          }
 
         })
         .catch(err => console.log(err));
