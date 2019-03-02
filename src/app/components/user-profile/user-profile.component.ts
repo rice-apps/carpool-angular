@@ -21,6 +21,7 @@ export class UserProfileComponent implements OnInit {
   // I just hardcoded these prices using this website: https://www.taxifarefinder.com/main.php?city=Uber-X-Houston
   public ride_costs = {'Rice' : {'IAH' : 40, 'Hobby' : 20, 'Rice' : 0}, 'IAH' : {'Rice' : 40}, 'Hobby' : {'Rice': 20}};
 
+
   constructor(private userService: UserService, private route: ActivatedRoute,
               private rideService: RideService, private fb: FormBuilder, private router: Router) {}
 

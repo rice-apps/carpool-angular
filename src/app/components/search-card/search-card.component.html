@@ -41,7 +41,7 @@
                           Departure Date
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
-                          <input class="form-control" id="search_depart_date" [owlDateTime]="dateDepartSearch" [owlDateTimeTrigger]="dateDepartSearch" formControlName="search_depart_date" placeholder="Date">
+                          <input class="form-control" id="search_depart_date" [min]="todayDate" [owlDateTime]="dateDepartSearch" [owlDateTimeTrigger]="dateDepartSearch" formControlName="search_depart_date" placeholder="Date">
                           <owl-date-time [pickerType]="'calendar'"
                                          [startAt]="startAt"
                                          #dateDepartSearch>
