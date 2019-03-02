@@ -90,6 +90,7 @@
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
           </div>
+
           <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 70px; right: 15px" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
           <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 70px; right: 15px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
           <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
@@ -97,7 +98,7 @@
 
 
       </div>
-
+      <h5> Comments: {{ride.comments_input}} </h5>
     </div>
 
     <!--Riders-->
