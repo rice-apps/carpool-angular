@@ -1,43 +1,90 @@
 <!--This needs a mobile and desktop version. When a user wants to create a new ride, this form will appear.-->
+<!--DESKTOP VIEW-->
+<div class="d-none d-sm-block">
+  <div class="container new-ride-container mt-5">
+    <form [formGroup]="newRideForm" (ngSubmit)="submit()">
 
-<div class="container new-ride-container mt-5">
-
-
-  <form [formGroup]="newRideForm" (ngSubmit)="submit()">
-
-    <div class="card mb-4">
-      <div class="card-body">
-        <h4>Tell us about your ride!</h4>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h4>Tell us about your ride!</h4>
+        </div>
       </div>
-    </div>
 
-    <div class="card mb-4">
-      <div class="card-header">
-        How many riders?
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group required">
-              <label for="numberInput" class="control-label">Max number of riders:</label>
-              <!--This is a drop down menu type thing-->
-              <select id="numberInput" formControlName="number_riders" required class="form-control form-control-lg">
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-              </select>
+      <div class="card mb-4">
+        <div class="card-header">
+          How many riders?
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group required">
+                <label for="numberInput" class="control-label">Max number of riders:</label>
+                <!--This is a drop down menu type thing-->
+                <select id="numberInput" formControlName="number_riders" required class="form-control form-control-lg">
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--WHEN-->
-    <div class="card mb-4">
-      <div class="card-header">
-        When is your ride?
+      <!--WHEN-->
+      <div class="card mb-4">
+        <div class="card-header">
+          When is your ride?
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group required">
+                <label for="dateInput" class="control-label">Date and time:</label>
+                <input class="form-control form-control-lg required" id="dateInput" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="date_time" placeholder="Date Time" required>
+                <owl-date-time [hour12Timer]="true"
+                               [startAt]="startAt"
+                               [stepMinute]="15" #dt1></owl-date-time>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <!--WHERE-->
+      <div class="card mb-4">
+        <div class="card-header">
+          Where to and where from?
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group required">
+                <label for="departureInput" class="control-label">Departing from:</label>
+                <!--This is a drop down menu type thing-->
+                <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg" >
+                  <option>Rice</option>
+                  <option>IAH</option>
+                  <option>Hobby</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group required">
+                <label for="arrivalInput" class="control-label">Arriving at:</label>
+                <select id="arrivalInput" required formControlName="arriving_at" class="form-control form-control-lg">
+                  <option>Rice</option>
+                  <option>IAH</option>
+                  <option>Hobby</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <div class="row">
@@ -48,62 +95,133 @@
               <owl-date-time [hour12Timer]="true"
                              [startAt]="startAt"
                              [stepMinute]="15" #dt1></owl-date-time>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-    <!--WHERE-->
-    <div class="card mb-4">
-      <div class="card-header">
-        Where to and where from?
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group required">
-              <label for="departureInput" class="control-label">Departing from:</label>
-              <!--This is a drop down menu type thing-->
-              <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg" >
-                <option>Rice</option>
-                <option>IAH</option>
-                <option>Hobby</option>
-              </select>
-            </div>
-
-          </div>
-          <div class="col-lg-6">
-            <div class="form-group required">
-              <label for="arrivalInput" class="control-label">Arriving at:</label>
-              <select id="arrivalInput" required formControlName="arriving_at" class="form-control form-control-lg">
-                <option>Rice</option>
-                <option>IAH</option>
-                <option>Hobby</option>
-              </select>
+      <!--<div class="card mb-4">-->
+        <!--<div class="card-header">-->
+          <!--Any extra notes-->
+        <!--</div>-->
+        <!--<div class="card-body">-->
+          <!--<div class="row">-->
+            <!--<div class="col-lg-6">-->
+              <!--<div class="form-group">-->
+                <!--<label for="comments_input">Comments:</label>-->
+                <!--<textarea class="form-control form-control-lg" formControlName="comments_input" id="comments_input" rows="3" placeholder="Meeting location, etc.." ></textarea>-->
+              <!--</div>-->
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card mb-4">
-      <div class="card-header">
-        Any extra notes
+
+
+      <button type="submit" class="btn btn-lg btn-outline-primary btn-block" [disabled]="!newRideForm.valid" >Submit</button>
+    </form>
+  </div>
+</div>
+
+<!--MOBILE VIEW-->
+<div class="d-block d-sm-none">
+  <div class="container new-ride-container mt-5">
+    <form [formGroup]="newRideForm" (ngSubmit)="submit()">
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h4>Tell us about your ride!</h4>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label for="comments_input">Comments:</label>
-              <textarea class="form-control form-control-lg" formControlName="comments_input" id="comments_input" rows="3" placeholder="Meeting location, etc.." ></textarea>
+
+      <div class="card mb-4">
+        <div class="card-header">
+          How many riders?
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="form-group required">
+                <label for="numberInput" class="control-label">Max number of riders:</label>
+                <!--This is a drop down menu type thing-->
+                <select id="numberInput" formControlName="number_riders" required class="form-control form-control-lg">
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <!--WHEN-->
+      <div class="card mb-4">
+        <div class="card-header">
+          When is your ride?
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="form-group required">
+                <label for="dateInput" class="control-label">Date and time:</label>
+                <input class="form-control form-control-lg required" id="dateInput" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" formControlName="date_time" placeholder="Date Time" required>
+                <owl-date-time [hour12Timer]="true"
+                               [startAt]="startAt"
+                               [stepMinute]="15" #dt3></owl-date-time>
+              </div>
+            </div>
 
 
-    <button type="submit" class="btn btn-lg btn-outline-primary btn-block" [disabled]="!newRideForm.valid" >Submit</button>
-  </form>
+          </div>
+        </div>
+      </div>
+      <!--WHERE-->
+      <div class="card mb-4">
+        <div class="card-header">
+          Where to and where from?
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="form-group required">
+                <label for="departureInput" class="control-label">Departing from:</label>
+                <!--This is a drop down menu type thing-->
+                <select id="departureInput" formControlName="departing_from" required class="form-control form-control-lg" >
+                  <option>Rice</option>
+                  <option>IAH</option>
+                  <option>Hobby</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group required">
+                <label for="arrivalInput" class="control-label">Arriving at:</label>
+                <select id="arrivalInput" required formControlName="arriving_at" class="form-control form-control-lg">
+                  <option>Rice</option>
+                  <option>IAH</option>
+                  <option>Hobby</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="card-header">
+          Any extra notes
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label for="comments_input">Comments:</label>
+                <textarea class="form-control form-control-lg" formControlName="comments_input" id="comments_input" rows="3" placeholder="Meeting location, etc.." ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-lg btn-outline-primary btn-block" [disabled]="!newRideForm.valid" >Submit</button>
+    </form>
+  </div>
 </div>
