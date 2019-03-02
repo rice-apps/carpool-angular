@@ -16,6 +16,7 @@ export class SearchCardComponent implements OnInit {
   private rides: Ride[];
   newSearchForm: FormGroup;
   startAt: Date = new Date();
+  public todayDate: any = new Date();
 
   constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
 

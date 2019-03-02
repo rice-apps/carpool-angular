@@ -16,6 +16,7 @@ export class NewRideComponent implements OnInit {
   newRideForm: FormGroup;
   newRide: Ride = new Ride();
   startAt: Date = new Date();
+  public todayDate: any = new Date();
 
   constructor(private fb: FormBuilder,
               private rideService: RideService,
