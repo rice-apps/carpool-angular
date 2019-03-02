@@ -86,17 +86,26 @@
           </div>
         </div>
       </div>
-      <div class="card mb-4">
-        <div class="card-header">
-          Any extra notes
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="comments_input">Comments:</label>
-                <textarea class="form-control form-control-lg" formControlName="comments_input" id="comments_input" rows="3" placeholder="Meeting location, etc.." ></textarea>
-              </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group required">
+              <label for="dateInput" class="control-label">Date and time:</label>
+              <input class="form-control form-control-lg required" id="dateInput" [min]="todayDate" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="date_time" placeholder="Date Time" required>
+              <owl-date-time [hour12Timer]="true"
+                             [startAt]="startAt"
+                             [stepMinute]="15" #dt1></owl-date-time>
+      <!--<div class="card mb-4">-->
+        <!--<div class="card-header">-->
+          <!--Any extra notes-->
+        <!--</div>-->
+        <!--<div class="card-body">-->
+          <!--<div class="row">-->
+            <!--<div class="col-lg-6">-->
+              <!--<div class="form-group">-->
+                <!--<label for="comments_input">Comments:</label>-->
+                <!--<textarea class="form-control form-control-lg" formControlName="comments_input" id="comments_input" rows="3" placeholder="Meeting location, etc.." ></textarea>-->
+              <!--</div>-->
             </div>
           </div>
         </div>
