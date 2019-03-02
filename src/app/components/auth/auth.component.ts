@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
         })
         .catch(err => console.log(err));
 
-    }); // why is it making me put a semicolon here
+    });
   }
 
 }
