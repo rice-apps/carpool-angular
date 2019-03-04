@@ -2,7 +2,7 @@
 
 <!--DESKTOP VIEW-->
 <div class="d-none d-sm-block">
-  <div class="card mt-2 w-50 mx-auto ">
+  <div class="card mt-2 mx-auto w-50">
       <form [formGroup]="newSearchForm">
           <div class="card-body ">
               <div class="mb-2">
@@ -60,9 +60,6 @@
           </div>
       </form>
   </div>
-
-
-
 </div>
 
 
@@ -105,13 +102,16 @@
         <div class="mb-2">
           <div class="form-row">
             <div class="col-4">
-              Date
+              Departure Date
             </div>
             <form class="form-inline" [formGroup]="newSearchForm">
-              <input class="form-control" id="inlineFormCustomSelectPref2" placeholder="01/01/19" formControlName="search_depart_date">
+              <input class="form-control" id="search_depart_date1" [min]="todayDate" [owlDateTime]="dateDepartSearch1" [owlDateTimeTrigger]="dateDepartSearch1" formControlName="search_depart_date" placeholder="Date">
+              <owl-date-time [pickerType]="'calendar'"
+                             [startAt]="startAt"
+                             #dateDepartSearch1>
+              </owl-date-time>
             </form>
           </div>
-
         </div>
         <div>
           <button class="btn btn-outline-primary text-center" (click)="search()">

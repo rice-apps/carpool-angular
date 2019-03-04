@@ -94,9 +94,9 @@
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
           </div>
-          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
-          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
-          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
       </div>
     </div>
