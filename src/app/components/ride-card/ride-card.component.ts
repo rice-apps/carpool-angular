@@ -1,5 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {Ride} from '../../models/ride';
+import * as moment from 'moment';
+import 'moment-timezone';
 
 
 @Component({
@@ -65,6 +67,12 @@ export class RideCardComponent {
     if (rideTime) {
       console.log(rideTime);
       return rideTime.split(' ')[2];
+    }
+  }
+
+  departTime(rideTime: Date) {
+    if (rideTime) {
+      return moment(rideTime).tz('America/Chicago');
     }
   }
 }
