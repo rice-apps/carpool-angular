@@ -12,8 +12,8 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
-  //baseUrl: 'http://carpool-riceapps.surge.sh/',
+  //baseUrl: 'http://localhost:4200/',
+  baseUrl: 'https://carpool-frontend-testing.appspot.com',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
