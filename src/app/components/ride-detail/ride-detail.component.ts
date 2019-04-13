@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from '../../services/auth-service/auth.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-ride-detail',
@@ -108,6 +109,12 @@ export class RideDetailComponent implements OnInit {
       } else if (temp.toLowerCase() === 'december') {
         return 'Dec.';
       }
+    }
+  }
+
+  departTime(rideTime: Date) {
+    if (rideTime) {
+      return moment(rideTime).tz('America/Chicago');
     }
   }
 
