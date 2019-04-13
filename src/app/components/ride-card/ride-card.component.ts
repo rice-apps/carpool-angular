@@ -65,14 +65,8 @@ export class RideCardComponent {
 
   departParseYear(rideTime: String) {
     if (rideTime) {
-      console.log(rideTime);
+      // console.log(rideTime);
       return rideTime.split(' ')[2];
-    }
-  }
-
-  departTime(rideTime: Date) {
-    if (rideTime) {
-      return moment(rideTime).tz('America/Chicago');
     }
   }
 }
