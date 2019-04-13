@@ -13,7 +13,7 @@ exports.config = {
   },
   directConnect: true,
   //baseUrl: 'http://localhost:4200/',
-  baseUrl: 'https://carpool-frontend-testing.appspot.com',
+  baseUrl: 'https://carpool-frontend-testing.appspot.com/auth',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
