@@ -10,6 +10,7 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     const items = Array.from(document.querySelectorAll(".accordion a"));
 
     function toggleAccordion(){
