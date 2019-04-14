@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {Ride} from '../../models/ride';
-import * as moment from 'moment';
-import 'moment-timezone';
+
+// import 'moment-timezone';
 
 
 @Component({
