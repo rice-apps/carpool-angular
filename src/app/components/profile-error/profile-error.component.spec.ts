@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileErrorComponent } from './profile-error.component';
 
-describe('ProfileErrorComponent', () => {
+describe('About', () => {
   let component: ProfileErrorComponent;
   let fixture: ComponentFixture<ProfileErrorComponent>;
 

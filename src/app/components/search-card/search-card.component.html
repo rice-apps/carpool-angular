@@ -8,7 +8,7 @@
               <div class="mb-2">
                   <div class="form-row">
                       <div class="col-4">
-                          Departing
+                          Departing to:
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
                           <select class="form-control" id="search_depart" formControlName="departing_from">
@@ -23,7 +23,7 @@
               <div class="mb-2">
                   <div class="form-row">
                       <div class="col-4">
-                          Arriving
+                          Arriving at:
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
                           <select class="form-control" id="search_arrive" formControlName="arriving_at">
@@ -41,7 +41,7 @@
                           Departure Date
                       </div>
                       <form class="form-inline" [formGroup]="newSearchForm">
-                          <input class="form-control" id="search_depart_date" [min]="todayDate" [owlDateTime]="dateDepartSearch" [owlDateTimeTrigger]="dateDepartSearch" formControlName="search_depart_date" placeholder="Date">
+                          <input class="form-control" id="search_depart_date" [min]="todayDate - 1" [owlDateTime]="dateDepartSearch" [owlDateTimeTrigger]="dateDepartSearch" formControlName="search_depart_date" placeholder="Date">
                           <owl-date-time [pickerType]="'calendar'"
                                          [startAt]="startAt"
                                          #dateDepartSearch>
@@ -53,9 +53,13 @@
                   <button class="btn btn-outline-primary btn-md text-center" (click)="search()">
                       Search!
                   </button>
+                  <button class="btn btn-outline-primary btn-md text-center" (click)="clear()">
+                      Clear search
+                  </button>
                   <button class="btn btn-outline-primary btn-md text-center" (click)="newRideForm()">
                       Create a new ride?
                   </button>
+
               </div>
           </div>
       </form>

@@ -12,6 +12,7 @@ import {UserProfileEditComponent} from './components/user-profile-edit/user-prof
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
 import {ProfileErrorComponent} from './components/profile-error/profile-error.component';
 import {Profile} from 'selenium-webdriver/firefox';
+import {AboutComponent} from './components/about/about.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path: 'profileerror',
     component: ProfileErrorComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: '**',
