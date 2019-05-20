@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.authService.authenticate(params['ticket'])
         .then((res) => {
-          console.log(res);
+          console.log('res from backend:', res);
            if (res.isNew) { // formerly: if (res.user.first_name == null) {
               // New User
               this.router.navigate(['/profile/'+res.user._id+'/edit']);
