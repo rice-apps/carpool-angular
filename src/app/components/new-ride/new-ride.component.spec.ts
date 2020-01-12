@@ -59,4 +59,15 @@ describe('NewRideComponent', () => {
     const central = component.convertTimeToCST(shanghai);
     expect(central).toEqual(moment.tz('2020-05-11 02:00', 'America/Chicago').toDate());
   });
+
+  it('compute time zone difference', () => {
+    const diff = component.getDifferenceBetween('Asia/Dhaka', 'America/Chicago');
+    expect(diff).toEqual(-12);
+  });
+  it('change 3:00pm Dhaka time to 3:00pm CST', () => {
+    component.diffFromCST = -12; // Dhaka is ahead by 12 hours in the summer
+    const dhaka = moment.tz('2020-01-09 15:00', 'Asia/Dhaka').toDate();
+    const central = component.convertTimeToCST(dhaka);
+    expect(central).toEqual(moment.tz('2020-01-09 15:00', 'America/Chicago').toDate());
+  });
 });

@@ -56,9 +56,9 @@ export class NewRideComponent implements OnInit {
   // Ex. Change 1:00 PM PST to 1:00 PM CST.
 
   convertTimeToCST(departing_datetime: Date) {
-    const centralTime = moment.tz(departing_datetime, 'America/Chicago').toDate();
-    centralTime.setHours(centralTime.getHours() - this.diffFromCST);
-    return centralTime;
+    const centralTime = moment.tz(departing_datetime, 'America/Chicago');
+    centralTime.subtract(this.diffFromCST, 'hours');
+    return centralTime.toDate();
   }
 
   // get difference between this machine's time zone and CST.
