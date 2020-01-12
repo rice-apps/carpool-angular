@@ -55,21 +55,30 @@ export class NewRideComponent implements OnInit {
   // Convert the time zone of this date object to CST while maintaining the same numbers that comprise the time.
   // Ex. Change 1:00 PM PST to 1:00 PM CST.
 
-  public convertTimeToCST(departing_datetime: Date) {
-    // Get the time in terms of CST
-    const timeString = departing_datetime.toLocaleString('en-US', {timeZone: 'America/Chicago'});
-    const centralTime = moment.tz(timeString, 'America/Chicago').toDate();
-    centralTime.setHours(centralTime.getHours() + this.diffFromCST);
+  convertTimeToCST(departing_datetime: Date) {
+    const centralTime = moment.tz(departing_datetime, 'America/Chicago').toDate();
+    centralTime.setHours(centralTime.getHours() - this.diffFromCST);
     return centralTime;
   }
 
   // get difference between this machine's time zone and CST.
-  public getDifferenceFromCST() {
+  getDifferenceFromCST() {
     const now = moment();
     const localOffset = now.utcOffset();
     now.tz('America/Chicago'); // your time zone
     const centralOffset = now.utcOffset();
     const diffInHours = (centralOffset - localOffset) / 60;
+    return diffInHours;
+  }
+
+  // general method. for testing.
+  getDifferenceBetween(timeZone1: string, timeZone2: string) {
+    const now = moment();
+    now.tz(timeZone1);
+    const offset1 = now.utcOffset();
+    now.tz(timeZone2);
+    const offset2 = now.utcOffset();
+    const diffInHours = (offset2 - offset1) / 60;
     return diffInHours;
   }
 
