@@ -27,7 +27,7 @@
     "amazing-time-picker": "^1.5.3",
     "core-js": "^2.5.7",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.23",
+    "moment-timezone": "^0.5.27",
     "ng-pick-datetime": "^5.2.6",
     "rxjs": "^5.5.12",
     "sass-loader": "^6.0.7",

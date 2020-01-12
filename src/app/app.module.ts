@@ -58,6 +58,9 @@ import { AboutComponent } from './components/about/about.component';
     OwlDateTimeModule,
     OwlNativeDateTimeModule
   ],
+  exports: [
+    NewRideComponent
+  ],
   providers: [
     AuthService,
     RideService,
