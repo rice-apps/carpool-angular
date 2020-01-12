@@ -7,6 +7,7 @@ export class Ride {
   arriving_at: String;
   meeting_location: String;
   number_riders: String;
+  comments_input: String;
 
   // number_of_riders: Number;
 

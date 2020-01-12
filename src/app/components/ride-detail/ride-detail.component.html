@@ -9,7 +9,7 @@
       <div class="card-header nopadding">
         <div class="row nopadding">
           <!--<div class="col">-->
-          <div class="box nopadding" style="background-color: #008cba">
+          <div class="box nopadding" style="background-color: #2B7A78">
             <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime |
               date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime |
@@ -19,17 +19,24 @@
           <div class="col-6" style="padding-top: 15px; padding-left: 20px">
             <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
             <!--<h4> {{number_of_riders}}</h4>-->
-            <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
+            <h4>{{ride.departing_datetime | date:'shortTime':'CST'}} CST</h4>
+            <h5> # riders: {{ride.riders.length}}/{{ride.number_riders}} </h5>
             <!--<h4> Meeting at: {{ride.meeting_location}} </h4>-->
             <!--<h6 style="text-align: right; padding-right: 10px"  >-->
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
           </div>
           <!--Click to join or leave ride-->
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-md" style="position: absolute; top: 40px; right: 10px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
+
+      </div>
+    </div>
+    <div class="card mt-2 w-50 mx-auto">
+      <div class="card-header" >
+        <h5> Comments: {{ride.comments_input}} </h5>
       </div>
     </div>
 
@@ -39,9 +46,10 @@
         <!--<app-user-profile *ngFor="let user of users" [ride]="ride"  [routerLink]="['/username', profile.username]"></app-user-profile>-->
         <div class="row">
           <div class="col-sm-6">
-            <img
-              [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?theme=base&numcolors=4&size=220&fmt=svg'"
-              alt="mpo1" width="50%" height="100%">
+            <!--<img-->
+              <!--[src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?theme=base&numcolors=4&size=220&fmt=svg'"-->
+              <!--alt="mpo1" width="50%" height="100%">-->
+            <img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?colors=143937&colors=FFF&colors=2B7A78&numcolors=3&size=220&fmt=svg'" width="50%" height="100%">
           </div>
           <div class="col-sm-6 align-self-center">
             <h2>
@@ -70,7 +78,7 @@
       <div class="card-header nopadding">
         <div class="row">
           <div class="col col-3">
-            <div class="box nopadding" style="background-color: #008cba">
+            <div class="box nopadding" style="background-color: #2B7178">
               <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime |
                 date:'longDate')}}</b></div>
               <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime |
@@ -81,19 +89,21 @@
           <div class="col-8" style="padding-top: 25px; padding-left: 20px">
             <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
 
-            <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
+            <h4>{{ride.departing_datetime | date:'shortTime':'CST'}} CST</h4>
             <!--<h6 style="text-align: right; padding-right: 10px"  >-->
             <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
             <!--</h6>-->
           </div>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 70px; right: 15px" (click)="postUserToRide()" *ngIf="checkUser()">Join Ride</button>
-          <button class="btn btn-md btn-primary" style="position: absolute; top: 70px; right: 15px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
-
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px" (click)="postUserToRide()" *ngIf="checkUser() && !rideFull()">Join Ride</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px" (click)="removeUserToRide()" *ngIf="!checkUser()">Leave Ride</button>
+          <button class="btn btn-outline-primary btn-sm" style="position: absolute; top: 65px; right: 5px; cursor: not-allowed" *ngIf="rideFull() && checkUser()" disabled>Ride Full</button>
         </div>
-
-
       </div>
-
+    </div>
+    <div class="card mt-2">
+      <div class="card-header" >
+        <h5> Comments: {{ride.comments_input}} </h5>
+      </div>
     </div>
 
     <!--Riders-->
@@ -101,10 +111,10 @@
       <div class="card-body">
         <div class="row">
           <div class="col-xs-6">
-            <img
-              [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?theme=base&numcolors=4&size=220&fmt=svg'"
-              alt="mpo1" width="100" height="100">
-
+            <!--<img-->
+              <!--[src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?theme=base&numcolors=4&size=220&fmt=svg'"-->
+              <!--alt="mpo1" width="100" height="100">-->
+            <img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + rider.username + '?colors=143937&colors=FFF&colors=2B7A78&numcolors=3&size=220&fmt=svg'" width="50%" height="100%">
           </div>
 
           <div class="col-xs-6 align-self-center" style="padding-left: 10px">

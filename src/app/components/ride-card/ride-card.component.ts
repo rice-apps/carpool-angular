@@ -1,6 +1,8 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {Ride} from '../../models/ride';
 
+// import 'moment-timezone';
+
 
 @Component({
   selector: 'app-ride-card',
@@ -63,7 +65,7 @@ export class RideCardComponent {
 
   departParseYear(rideTime: String) {
     if (rideTime) {
-      console.log(rideTime);
+      // console.log(rideTime);
       return rideTime.split(' ')[2];
     }
   }

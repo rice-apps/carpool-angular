@@ -20,17 +20,18 @@ export class AuthComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.authService.authenticate(params['ticket'])
         .then((res) => {
-          console.log(res);
-          if (res.user.is_new) {
-            this.router.navigate(['/profile/edit']);
+          console.log('res from backend:', res);
+           if (res.isNew) { // formerly: if (res.user.first_name == null) {
+              // New User
+              this.router.navigate(['/profile/'+res.user._id+'/edit']);
           } else {
-            this.router.navigate(['/rides']);
+              // Not a new user!
+              this.router.navigate(['/rides']);
           }
 
         })
         .catch(err => console.log(err));
-
-    }); // why is it making me put a semicolon here
+    });
   }
 
 }

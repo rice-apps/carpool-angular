@@ -7,9 +7,11 @@
   <div class="card mt-3">
     <div class="card-body">
       <div class="text-center">
-        <img
-          [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + user.username + '?theme=base&numcolors=4&size=220&fmt=svg'"
-          width="100" height="100">
+        <!--<img-->
+          <!--[src]="'http://tinygraphs.com/labs/isogrids/hexa/' + user.username + '?theme=base&numcolors=4&size=220&fmt=svg'"-->
+          <!--width="100" height="100">-->
+        <!--this is a way to make the avatars have specific colors  -->
+        <img [src]="'http://tinygraphs.com/labs/isogrids/hexa/' + user.username + '?colors=143937&colors=FFF&colors=2B7A78&numcolors=3&size=220&fmt=svg'" width="100" height="100">
         <h1>{{user.first_name}} {{user.last_name}}</h1>
         <!--<p class="title">Description</p>-->
         <p>{{formatPhoneNumber(user.phone)}}</p>
@@ -20,11 +22,14 @@
   </div>
 
   <div class="card-body">
-    <div class="row">
-      <div class="col-12">
-        <h1 style="text-align: center">You've saved ${{money_saved}}!</h1>
+    <div *ngIf="money_saved > 0">
+      <div class="row">
+        <div class="col-12">
+          <h1 style="text-align: center">You've saved ${{money_saved}}!</h1>
+        </div>
       </div>
     </div>
+
 
     <div class="row">
 
@@ -32,20 +37,19 @@
       <div class="col-6">
         <div class="card-deck d-none d-sm-block" >
           <h1 style="text-align: center">Past Rides</h1>
-          <div *ngFor="let ride of past_rides">
-            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-
-          </div>
+            <div *ngFor="let ride of past_rides">
+              <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+            </div>
         </div>
       </div>
       <!--MOBILE VIEW-->
 
       <div class="card-deck d-block d-sm-none">
-        <h1 style="text-align: left">Past Rides</h1>
-        <div *ngFor="let ride of past_rides">
-          <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
-
-
+        <div *ngIf="past_rides.length > 0">
+          <h1 style="text-align: left">Past Rides</h1>
+          <div *ngFor="let ride of past_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
         </div>
       </div>
 
@@ -62,9 +66,11 @@
       <!--MOBILE VIEW-->
 
       <div class="card-deck d-block d-sm-none">
-        <h1 style="text-align: left">Upcoming rides</h1>
-        <div *ngFor="let ride of future_rides">
-          <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+        <div *ngIf="future_rides.length > 0">
+          <h1 style="text-align: left">Upcoming rides</h1>
+          <div *ngFor="let ride of future_rides">
+            <app-ride-card [ride]="ride"  [routerLink]="['/rides', ride._id]"></app-ride-card>
+          </div>
         </div>
       </div>
 

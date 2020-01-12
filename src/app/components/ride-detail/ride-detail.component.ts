@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from '../../services/auth-service/auth.service';
+// import * as moment from 'moment';
 
 @Component({
   selector: 'app-ride-detail',
@@ -36,19 +37,27 @@ export class RideDetailComponent implements OnInit {
    * Allow the current user to join this ride
    */
   postUserToRide() {
+    if ( new Date(this.ride.departing_datetime) <= new Date()) {
+      alert('You cannot join a past ride.');
+    } else {
     this.rideService.postUserToRide(this.ride._id, this.currentUser._id)
       .then(ride => {
         this.ride = ride;
       });
+    }
   }
 
   /**
    * Remove the current user from this ride
    */
   removeUserToRide() {
+    if ( new Date(this.ride.departing_datetime) <= new Date()) {
+      alert('You cannot leave a past ride.');
+    } else {
     this.rideService.removeUserToRide(this.ride._id, this.currentUser._id)
       .then(ride => this.ride = ride);
       alert('You have been removed from this ride.');
+    }
       this.router.navigate(['/rides']);
   }
 
@@ -102,5 +111,11 @@ export class RideDetailComponent implements OnInit {
       }
     }
   }
+
+  /*departTime(rideTime: Date) {
+    if (rideTime) {
+      return moment(rideTime).tz('America/Chicago');
+    }
+  } */
 
 }

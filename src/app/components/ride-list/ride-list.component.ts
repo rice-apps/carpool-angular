@@ -18,7 +18,7 @@ export class RideListComponent implements OnInit {
   ngOnInit() {
   }
 
-  sortByRecent() {
+  sortByLaterDatesFirst() {
     this.rides.sort(function(a, b) {
       if (a.departing_datetime < b.departing_datetime) {
         return 1;
@@ -30,7 +30,7 @@ export class RideListComponent implements OnInit {
     });
   }
 
-  sortByOldest() {
+  sortByEarliestDatesFirst() {
     this.rides.sort(function(a, b) {
       if (a.departing_datetime > b.departing_datetime) {
         return 1;
@@ -48,7 +48,7 @@ export class RideListComponent implements OnInit {
 
   onSearch ($event) {
     this.rides = $event;
-    this.sortByRecent();
+    this.sortByEarliestDatesFirst();
     this.filterPastRides();
   }
 }

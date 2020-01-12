@@ -24,6 +24,7 @@ import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
 import { SearchCardComponent } from './components/search-card/search-card.component';
 import {UserProfileEditComponent} from './components/user-profile-edit/user-profile-edit.component';
 import { ProfileErrorComponent } from './components/profile-error/profile-error.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProfileErrorComponent } from './components/profile-error/profile-error.
     RideCardComponent,
     SearchCardComponent,
     UserProfileEditComponent,
-    ProfileErrorComponent
+    ProfileErrorComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,9 @@ import { ProfileErrorComponent } from './components/profile-error/profile-error.
     AmazingTimePickerModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule
+  ],
+  exports: [
+    NewRideComponent
   ],
   providers: [
     AuthService,

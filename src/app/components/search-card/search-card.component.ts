@@ -16,6 +16,7 @@ export class SearchCardComponent implements OnInit {
   private rides: Ride[];
   newSearchForm: FormGroup;
   startAt: Date = new Date();
+  public todayDate: any = new Date();
 
   constructor(private rideService: RideService, private fb: FormBuilder, private router: Router) {}
 
@@ -57,6 +58,15 @@ export class SearchCardComponent implements OnInit {
 // this routes page to /rides/new
   newRideForm() {
     this.router.navigate(['/rides/new']);
+  }
+
+  clear() {
+    this.rideService.getRides()
+      .then(rides => {
+        this.rides = rides;
+        this.ridesSearch.emit(this.rides);
+      })
+      .catch(err => console.log(err));
   }
 
 }

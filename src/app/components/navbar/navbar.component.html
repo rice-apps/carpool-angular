@@ -47,17 +47,24 @@
 
 <!--This is the top part of every page to log out and to see profile information-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient1">
   <div class="container">
-    <a class="navbar-brand" href="/rides">Carpool</a>
+    <a class="navbar-brand" href="/">Carpool</a>
+    <img src="assets/img/carpoolll.png" alt="Carpool Logo" width="30" height="50">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
+      <!--A button to go to the ride list/search page.-->
+      <button *ngIf="loggedIn | async" (click)="navigateToRides()" class="btn btn-outline-secondary my-2 my-sm-0">Find Ride</button>
+      <!--A button to go right to the new ride page.-->
+      <button *ngIf="loggedIn | async" (click)="newRideForm()" class="btn btn-outline-secondary my-2 my-sm-0">New Ride</button>
       <!--This is the profile button and how it looks.-->
       <button *ngIf="loggedIn | async" (click)="profile()" class="btn btn-outline-secondary my-2 my-sm-0" id ="submit">Profile</button>
+      <button *ngIf="loggedIn | async" (click)="about_us()" class="btn btn-outline-secondary my-2 my-sm-0" id ="about_us">About</button>
+
       <!--<style type="text/css">-->
       <!--#submit {-->
       <!--width: 8.5%;-->

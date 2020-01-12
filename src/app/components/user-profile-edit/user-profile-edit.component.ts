@@ -28,18 +28,18 @@ export class UserProfileEditComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
       // Reroute if the parameter is undefined
-      if (!params['_id'] || params['_id'] === '') {
-        this.router.navigate(['/profileerror']);
-      }
+      // if (!params['_id'] || params['_id'] === '') {
+      //   this.router.navigate(['/profileerror']);
+      // }
 
       // Get current user
       this.user = await this.userService.getUserProfile(params['_id']);
 
       // If the user does not exist, redirect
-      if (!this.user) {
-        this.router.navigate(['/profileerror']);
-        return;
-      }
+      //if (!this.user) {
+        //this.router.navigate(['/profileerror']);
+       // return;
+      //}
 
       this.fullyLoaded = Promise.resolve(true);
     });

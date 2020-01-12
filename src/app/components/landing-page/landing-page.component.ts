@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  private authUrl: string = `${CONFIG.cas_auth_url}?service=${CONFIG.service_url}`;
+  public authUrl: string = `${CONFIG.cas_auth_url}?service=${CONFIG.service_url}`;
 
   loggedIn : Observable<boolean>;
   constructor(private authService: AuthService, private router: Router) {

@@ -7,8 +7,8 @@
     <div class="card-header nopadding" [routerLink]="['/rides', ride._id]" data-toggle="collapse" >
       <div class="row nopadding">
         <!--shows calendar date in a pretty way-->
-          <div class="box nopadding" style="background-color: #008cba" >
-            <div class="date center" style="font-size: 45px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
+          <div class="box nopadding" style="background-color: #2B7A78">
+            <div class="date center" style="font-size: 40px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 16px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
             <div class="date center" style="font-size: 14px;"><b>{{departParseYear(ride.departing_datetime | date:'longDate')}}</b></div>
           <!--</div>-->
@@ -16,23 +16,36 @@
         <!--From departure location -> destination location -->
         <div class="col-6" style="padding-top: 15px; padding-left: 20px">
           <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
-          <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
+          <h4>{{ride.departing_datetime | date:'shortTime':'CST'}} CST</h4>
+          <!--<h4>{{departTime(ride.departing_datetime)}} CDT</h4>-->
           <!--<h4> Number of riders: {{(ride.riders.length / 6 *100).toFixed(0)}}%</h4>-->
           <h5> # riders: {{ride.riders.length}}/{{ride.number_riders}} </h5>
-
-
-            <!--<h6 style="text-align: right; padding-right: 10px"  >-->
+          <!--<h6 style="text-align: right; padding-right: 10px"  >-->
           <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
           <!--</h6>-->
         </div>
       </div>
-
-
     </div>
-
-
   </div>
 </div>
+
+<!--below is an attempt to make cooler ride cards-->
+
+<!--<div class="d-none d-sm-block">-->
+<!--<div class="mt-2 w-50 mx-auto">-->
+<!--<div class="card features" [routerLink]="['/rides', ride._id]" data-toggle="collapse">-->
+<!--<div class="card-body row nopadding">-->
+<!--<div class="media">-->
+<!--<div class="box nopadding gradient-fill">-->
+<!--<span class="box gradient-fill"></span>-->
+<!--<div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>-->
+<!--<div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 <!--MOBILE VIEW-->
 <div class="d-block d-sm-none">
@@ -40,19 +53,21 @@
     <div class="card-header nopadding" [routerLink]="['/rides', ride._id]" data-toggle="collapse" [attr.data-target]="'#' + ride._id" >
       <div class="row">
         <div class="col col-3">
-          <div class="box nopadding" style="background-color: #008cba" >
-            <div class="date center" style="font-size: 52px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
-            <div class="date center" style="font-size: 18px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
+          <div class="box nopadding" style="background-color: #2B7A78" >
+            <div class="date center" style="font-size: 40px"><b>{{departParseDay(ride.departing_datetime | date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 16px;"><b>{{departParseMonth(ride.departing_datetime | date:'longDate')}}</b></div>
+            <div class="date center" style="font-size: 14px;"><b>{{departParseYear(ride.departing_datetime | date:'longDate')}}</b></div>
           </div>
         </div>
         <div class="col-1"></div>
         <div class="col-8" style="padding-top: 15px; padding-left: 20px">
           <h4>{{ride.departing_from}} <i class="fa fa-arrow-right" aria-hidden="true"></i> {{ride.arriving_at}}</h4>
 
-          <h4>{{ride.departing_datetime | date:'shortTime'}} </h4>
+          <h4>{{ride.departing_datetime | date:'shortTime':'CST'}} CST</h4>
           <!--<h6 style="text-align: right; padding-right: 10px"  >-->
           <!--<a href='#' [routerLink]="['/rides', ride._id]" class ="btn btn-outline-primary" >View Details</a>-->
           <!--</h6>-->
+          <h5> # riders: {{ride.riders.length}}/{{ride.number_riders}} </h5>
         </div>
       </div>
 
