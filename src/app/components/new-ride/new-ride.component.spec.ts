@@ -6,7 +6,6 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import {AppModule} from '../../app.module';
 import moment = require('moment-timezone');
-import {before} from 'selenium-webdriver/testing';
 
 describe('NewRideComponent', () => {
   let component: NewRideComponent;
@@ -55,7 +54,7 @@ describe('NewRideComponent', () => {
   });
 
   it('change 2:00am Shanghai time to 2:00am CST', () => {
-    component.diffFromCST = -13; // China is ahead by 14 hours
+    component.diffFromCST = -13; // China is ahead by 13 hours in the summer
     const shanghai = moment.tz('2020-05-11 02:00', 'Asia/Shanghai').toDate();
     const central = component.convertTimeToCST(shanghai);
     expect(central).toEqual(moment.tz('2020-05-11 02:00', 'America/Chicago').toDate());
